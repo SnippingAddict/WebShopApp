@@ -1,0 +1,72 @@
+
+<!-- <div>
+  <div class="mat-card-div">
+    <mat-card class="mat-card">TRENDING PRODUCT</mat-card>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="space-between">
+    <div *ngFor="let pd of service.list">
+          <mat-card class="example-card">  
+            <img class="image-set" mat-card-image src="https://cdn.shopify.com/s/files/1/0250/3793/0580/products/1_d539c0ca-7985-4c86-b8db-847074480619_1024x1024@2x.png?v=1558174602" >
+            <mat-carousel  timings="50ms ease-in" animationType="fade"
+                [autoplay]="false"
+                interval="5000"
+                color="accent"
+                maxWidth="auto"
+                proportion="100"
+                [loop]="true"
+                [hideArrows]="true"
+                [hideIndicators]="true"
+                [useKeyboard]="true"
+                [useMouseWheel]="true"
+                orientation="ltr">
+                  <mat-carousel-slide #matCarouselSlide
+                  *ngFor="let slide of slides; let i = index"
+                  [image]="slide.image"
+                  overlayColor="lightgrey"
+                  [hideOverlay]="true" >
+                  </mat-carousel-slide>
+                </mat-carousel>
+            <mat-card-content style="margin-bottom: 2px;" >    
+              <p class="p1">
+                {{pd.ItemName}}
+              </p>
+              <p class="p2">
+                ${{pd.Price}}.00
+              </p>
+            </mat-card-content>
+            <mat-card-actions class="card-action">
+              <button class="add-to-cart-btn" mat-raised-button color="primary" matTooltip="By default, I delay">
+                <mat-icon class="add-to-cart-icon" svgIcon="shopping-cart"></mat-icon>
+                Add to cart</button>
+            </mat-card-actions>
+          </mat-card>
+    </div>
+  </div>
+</div> -->
+<!-- <div>
+  <input type="text" class="form-control" placeholder="Search"
+  style="width:300px" [(ngModel)]="searchTerm">
+</div> -->
+
+<mat-form-field class="example-form-field">
+  <mat-label>Search product</mat-label>
+  <input matInput type="text" [(ngModel)]="searchTerm">
+  <button mat-button *ngIf="searchTerm" matSuffix mat-icon-button aria-label="Clear" (click)="searchTerm=''">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
+
+<!-- <div>
+  <mat-form-field>
+    <mat-label>Categories</mat-label>
+    <mat-select [(ngModel)]="searchTerm" [formControl]="categories" multiple>
+      <mat-option *ngFor="let category of categoryList" [value]="categories">{{category.Category.Categories}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div> -->
+
+<div class="row">
+  <div class="col-md-4" *ngFor="let product of productList | productFilter:searchTerm">
+    <app-shopping-detail-item [productItem]="product"></app-shopping-detail-item>
+  </div>
+</div>
