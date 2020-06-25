@@ -1,0 +1,48 @@
+.div1 {
+    background-color: #f0f0f0;
+    height: 350px;
+}
+
+.copyright {
+    font-size: 15px;
+    padding-top: 14px;
+    height: 50px;
+    background-color: black;
+    color: #bfbfbf;
+    text-align: start;
+}
+
+.list-div {
+    padding-top: 40px;
+}
+
+.store-list-div {
+    padding-top: 40px;
+}
+
+.legal-div {
+    padding-top: 40px;
+}
+
+.follow-div {
+    padding-top: 40px;
+}
+
+.contact-span {
+    padding-left: 20px;
+    font-size: large;
+    font-weight: 500;
+    color: #4f4f4f;
+}
+
+.store-span {
+    padding-left: 15px;
+    font-size: large;
+    font-weight: 500;
+    color: #4f4f4f;
+}
+
+.image {
+    padding-top: 2px;
+    float: right;
+}
