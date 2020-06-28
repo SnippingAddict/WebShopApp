@@ -1,0 +1,39 @@
+.centered {
+    position: absolute;
+    top: 56%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+.carousel-p1 {
+    font-size: 50px;
+    font-weight: 600;
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+.carousel-p2 {
+    font-size: 25px;
+    font-weight: 400;
+    padding-top: 170px;
+    padding-left: 20px;
+}
+
+.text-paragraph {
+    padding: 50px;
+}
+
+.button1 {
+    width: 150px;
+    height: 45px;
+    font-size: 14px;
+    color: #f7f7f7;
+    background-color: #ff4081 !important;
+    letter-spacing: 1px;
+    font-weight: 400;
+}
+
+.button-div {
+    padding-left: 20px;
+    padding-top: 30px;
+}

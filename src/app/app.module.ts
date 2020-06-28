@@ -47,6 +47,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { OKTA_CONFIG, OktaAuthModule, OktaCallbackComponent } from '@okta/okta-angular';
 import { AuthInterceptor } from './shared/okta/auth.interceptor';
 import {MatDividerModule} from '@angular/material/divider';
+import { FrontPageComponent } from './navigation-pages/front-page/front-page.component';
 
 
 @Injectable()
@@ -92,6 +93,7 @@ const routes: Routes = [
     CartItemComponent,
     ShoppingDetailItemComponent,
     ProductFilterPipe,
+    FrontPageComponent,
   ],
   imports: [
     BrowserModule,

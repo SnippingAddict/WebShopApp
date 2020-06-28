@@ -1,0 +1,22 @@
+.form-search-bar {
+    width: 500px;
+    padding-left: 30px;
+    padding-top: 23px;
+    display: inline-block;
+}
+
+.button1 {
+    width: 190px;
+    height: 45px;
+    font-size: 15px;
+    color: #f7f7f7;
+    background-color: transparent !important;
+    letter-spacing: 1px;
+    font-weight: 400;
+    border-radius: 0px;
+}
+
+.nav-div {
+    background-color: #303030;
+    position: relative;
+}
