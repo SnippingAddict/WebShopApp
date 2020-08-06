@@ -19,7 +19,8 @@ export class Product {
     public Quantity?: number,
     public Total?: number,
     public Category?: Category,
-    public Carts?: Cart
+    public Carts?: Cart,
+    public broj?: number
     ) { this.Quantity = 0;
       this.Id = Id,
       this.ItemName = ItemName;

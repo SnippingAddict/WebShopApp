@@ -44,11 +44,21 @@ import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProductFilterPipe } from './shared/pipes/product-filter.pipe';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { OKTA_CONFIG, OktaAuthModule, OktaCallbackComponent } from '@okta/okta-angular';
+import {
+  OKTA_CONFIG,
+  OktaAuthModule,
+  OktaCallbackComponent,
+} from '@okta/okta-angular';
 import { AuthInterceptor } from './shared/okta/auth.interceptor';
-import {MatDividerModule} from '@angular/material/divider';
+import { MatDividerModule } from '@angular/material/divider';
 import { FrontPageComponent } from './navigation-pages/front-page/front-page.component';
-
+import { MatTabsModule } from '@angular/material/tabs';
+import { BrowseComponent } from './navigation-pages/browse/browse.component';
+import { AboutUsComponent } from './navigation-pages/about-us/about-us.component';
+import { CommonModule } from '@angular/common';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { BrowseItemComponent } from './navigation-pages/browse/browse-item/browse-item.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @Injectable()
 export class HammerConfig extends HammerGestureConfig {
@@ -64,19 +74,31 @@ const oktaConfig = {
   issuer: 'https://dev-745718.okta.com/oauth2/default',
   redirectUri: 'http://localhost:4200/callback',
   clientId: '0oagr3dscmF9tvvLl4x6',
-  scopes: ['openid', 'profile']
+  scopes: ['openid', 'profile'],
 };
 
 const routes: Routes = [
-  { path: '', redirectTo: '/app', pathMatch: 'full' },
+  { path: '', redirectTo: '', pathMatch: 'full' },
   {
     path: 'app',
-    component: AppComponent
+    component: FrontPageComponent,
   },
   {
     path: 'callback',
-    component: OktaCallbackComponent
-  }
+    component: OktaCallbackComponent,
+  },
+  {
+    path: 'cart',
+    component: CartComponent,
+  },
+  {
+    path: 'browse',
+    component: BrowseComponent,
+  },
+  {
+    path: 'about-us',
+    component: AboutUsComponent,
+  },
 ];
 
 @NgModule({
@@ -94,6 +116,9 @@ const routes: Routes = [
     ShoppingDetailItemComponent,
     ProductFilterPipe,
     FrontPageComponent,
+    BrowseComponent,
+    AboutUsComponent,
+    BrowseItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -121,18 +146,22 @@ const routes: Routes = [
     ReactiveFormsModule,
     OktaAuthModule,
     RouterModule.forRoot(routes),
-    MatDividerModule
+    MatDividerModule,
+    MatTabsModule,
+    CommonModule,
+    MatCheckboxModule,
+    MatPaginatorModule,
   ],
   providers: [
     ShoppingDetailService,
-    { provide: HAMMER_GESTURE_CONFIG, useClass: HammerConfig,  },
+    { provide: HAMMER_GESTURE_CONFIG, useClass: HammerConfig },
     { provide: OKTA_CONFIG, useValue: oktaConfig },
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     CartService,
     CookieService,
   ],
   bootstrap: [AppComponent],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppModule {}
 

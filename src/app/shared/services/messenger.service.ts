@@ -14,6 +14,10 @@ export class MessengerService {
     this.subject.next(product) //Triggering an event
   }
 
+  sendBroj(broj) {
+    this.subject.next(broj)
+  }
+
   getMsg() {
     return this.subject.asObservable()
   }

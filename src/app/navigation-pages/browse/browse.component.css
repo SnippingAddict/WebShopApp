@@ -1,0 +1,67 @@
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: auto;
+  color: #0f0f0f;
+}
+
+.p1 {
+  text-align: center;
+  font-size: x-large;
+  font-weight: 500;
+}
+
+.p2 {
+  text-align: center;
+  font-size: 15px;
+}
+
+.p3 {
+    color: #585858;
+    font-weight: 500;
+    padding-left: 15px;
+    padding-top: 10px;
+    font-size: 17px;
+}
+
+.p4 {
+    color: #464646;
+    font-weight: 500;
+    font-size: 23px;
+}
+
+.p5 {
+    color: #3f3e3e;
+    margin: 3px 0px 0px 0px;
+}
+
+.filter-div {
+    width: 280px;
+    height: 230px;
+    border: 1px solid #e2e0e0;
+    
+}
+
+.p-div {
+    height: 50px;
+    background-color: #f2f2f2;
+    color: #414141;
+
+}
+
+.p-filter {
+    font-size: medium;
+    padding-left: 15px;
+    padding-top: 15px;
+}
+
+.checkbox {
+    width: 100px;
+    padding-left: 20px;
+}
+
+.item-div {
+    width: 620px;
+}

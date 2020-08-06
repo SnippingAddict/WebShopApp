@@ -20,3 +20,8 @@
     background-color: #303030;
     position: relative;
 }
+
+.nav-item {
+    display: inline-block;
+    padding-right: 23px;
+}

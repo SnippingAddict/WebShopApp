@@ -22,12 +22,14 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class ShoppingDetailItemComponent implements OnInit {
 
   @Input() productItem: any;
+  @Input('product') productName: string;
+
 
   selectedProduct: Product
 
   cartItem = {CartId: 1, ProductId: 1, Qty: 1};
 
-
+  broj = 1;
   productArray: string[]
 
   constructor(private cartService: CartService,
@@ -60,6 +62,8 @@ export class ShoppingDetailItemComponent implements OnInit {
     this.productSr.getProductsById(1)
   }
 
+
+  
   snackBarMsg = "Product added"
 
    handleAddToCart() {

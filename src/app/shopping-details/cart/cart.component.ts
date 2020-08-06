@@ -28,8 +28,8 @@ export class CartComponent implements OnInit {
 
    @Input() cartItems: Product[] = [];
 
-   products: Product
-   product: Product
+   @Input() products: Product
+   @Input() product: Product
    private cookieValue: any;
    @Input() cartSubtotal = 0;
 
@@ -43,10 +43,11 @@ export class CartComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.handleSubscription();
-    if (this.transactions !== [0]) {
-      this.transactions = JSON.parse(localStorage.getItem('Array'));
-    }
+     this.handleSubscription();
+    // if (this.transactions !== [0]) {
+    //   this.transactions = JSON.parse(localStorage.getItem('Array'));
+    // }
+    console.log(this.transactions)
   }
 
   setCookie() {
@@ -97,7 +98,9 @@ export class CartComponent implements OnInit {
         item.Quantity--
     } 
   } else {
-    item.Quantity--
+    const index: number = this.transactions.indexOf(item);
+    this.transactions.splice(index, 1);
+    item.Quantity = 0
     item.Total = item.Price * item.Quantity
   }
 }

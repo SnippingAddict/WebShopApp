@@ -10,19 +10,25 @@
 
 
 .mat-card {
-    transition: none !important;
-    box-shadow: none !important;
-    background-color: #ebebeb;
-    color: #545454;
+    background-color: white;
     font-weight: 500;
     font-size: 12.5pt;
-    padding-left: 10px;
-}
+    padding: 0px !important;
+    margin-top: 15px !important;
+    padding-bottom: 10px !important;
+    width: 960px;
+    box-shadow: #b3b3b3 !important;
+    transition: none !important;
+} 
 
 .mat-card-div {
     margin-bottom: 5px;
 
 }
+
+
+/* .top-buffer { padding-left:20px; } */
+
 
 .example-card {
     border: 2px solid #f7f7f7;
@@ -38,6 +44,10 @@
 .image-set {
     border-bottom: 2px solid #f7f7f7;
 }
+/* 
+.div-setting {
+     padding-left: 50px; 
+} */
 
 .p1 {
     text-align: center;

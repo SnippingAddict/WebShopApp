@@ -1,6 +1,6 @@
 .centered {
     position: absolute;
-    top: 56%;
+    top: 58%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
@@ -36,4 +36,18 @@
 .button-div {
     padding-left: 20px;
     padding-top: 30px;
+}
+
+.div-panels {
+    height: 280px;
+    width: 1170px;
+    padding: 15px 0px 15px 0px;
+    border-radius: 10px;
+    background-color: white;
+    margin: -55px 101px 15px 101px;
+    position: relative;
+}
+
+.panel-div {
+    border-radius: 10px;
 }

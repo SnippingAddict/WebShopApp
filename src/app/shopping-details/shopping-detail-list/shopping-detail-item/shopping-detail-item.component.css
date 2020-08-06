@@ -25,7 +25,7 @@
 }
 
 .example-card {
-    border: 2px solid #f7f7f7;
+    border: 2px solid #ededed;
     width: 200px;
     height: 330px;
     transition: none !important;
@@ -36,7 +36,7 @@
   }
 
 .image-set {
-    border-bottom: 2px solid #f7f7f7;
+    border-bottom: 2px solid #ededed;
     margin: 0px;
 }
 
