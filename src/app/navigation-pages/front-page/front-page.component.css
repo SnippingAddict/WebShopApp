@@ -1,53 +1,78 @@
 .centered {
-    position: absolute;
-    top: 58%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+  position: absolute;
+  top: 58%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
 .carousel-p1 {
-    font-size: 50px;
-    font-weight: 600;
-    padding-top: 20px;
-    padding-left: 20px;
+  font-size: 50px;
+  font-weight: 600;
+  padding-top: 20px;
+  padding-left: 20px;
 }
 
 .carousel-p2 {
-    font-size: 25px;
-    font-weight: 400;
-    padding-top: 170px;
-    padding-left: 20px;
+  font-size: 25px;
+  font-weight: 400;
+  padding-top: 170px;
+  padding-left: 20px;
 }
 
 .text-paragraph {
-    padding: 50px;
+  padding: 50px;
 }
 
 .button1 {
-    width: 150px;
-    height: 45px;
-    font-size: 14px;
-    color: #f7f7f7;
-    background-color: #ff4081 !important;
-    letter-spacing: 1px;
-    font-weight: 400;
+  width: 150px;
+  height: 45px;
+  font-size: 14px;
+  color: #f7f7f7;
+  background-color: #ff4081 !important;
+  letter-spacing: 1px;
+  font-weight: 400;
 }
 
 .button-div {
-    padding-left: 20px;
-    padding-top: 30px;
+  padding-left: 20px;
+  padding-top: 30px;
 }
 
 .div-panels {
-    height: 280px;
-    width: 1170px;
-    padding: 15px 0px 15px 0px;
-    border-radius: 10px;
-    background-color: white;
-    margin: -55px 101px 15px 101px;
-    position: relative;
+  height: 280px;
+  width: 1170px;
+  padding: 15px 0px 15px 0px;
+  border-radius: 10px;
+  background-color: white;
+  margin: -55px 101px 15px 101px;
+  position: relative;
 }
 
 .panel-div {
-    border-radius: 10px;
+  border-radius: 10px;
+}
+
+.baner1 {
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+.baner2 {
+  border-radius: 10px;
+}
+.baner3 {
+  border-radius: 10px;
+  margin-right: 30px;
+}
+.baner4 {
+  border-radius: 10px;
+
+}
+.baner5 {
+  border-radius: 10px;
+  margin-top: 30px;
+}
+
+.baners-div {
+    margin-top: 30px;
+    padding-left: 60px;
 }

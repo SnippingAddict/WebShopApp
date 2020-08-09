@@ -8,19 +8,29 @@ import { ProductService } from 'src/app/shared/services/product.service';
   styleUrls: ['./browse-item.component.css'],
 })
 export class BrowseItemComponent implements OnInit {
+  
   @Input() productItem: Product;
-  productList: Product[] = [];
+  @Input('product') productName: string;
+
+  @Input() productList: Product[] = [];
   product: any;
 
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
     this.loadProducts();
+    this.loadProductById(1);
+  }
+
+  loadProductById(id) {
+    this.productService.getProductById(id).subscribe((productId) => {
+      this.productItem = productId;
+    })
   }
 
   loadProducts() {
     this.productService.getProducts().subscribe((products) => {
       this.productList = products;
-    })
+    });
   }
 }

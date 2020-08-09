@@ -28,6 +28,14 @@ export class ProductService {
     return this.http.get<Product[]>(productsUrl);
   }
 
+  getProductById(Id): Observable<Product> {
+    return this.http.get<Product>(productsUrl + "/" + Id)
+  }
+
+  getProductsPaginator(event): Observable<Product[]> {
+    return this.http.get<Product[]>(productsUrl);
+  }
+
   getCategories(): Observable<Product[]>{
     return this.http.get<Product[]>(productsUrl)
   }

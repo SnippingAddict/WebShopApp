@@ -47,55 +47,53 @@
   style="width:300px" [(ngModel)]="searchTerm">
 </div> -->
 
-<mat-card class="mat-cardd">
-  <div class="div-setting">
-    <div class="container div-setting">
-      <div class="col-md-12">
-        <mat-tab-group
-          style="width: 900px;"
-          dynamicHeight
-          mat-align-tabs="center"
-        >
-          <mat-tab label="New Arrival">
-            <div class="row top-buffer">
-              <div
-                class="col-md-3"
-                *ngFor="let product of productList | productFilter: searchTerm"
-              >
-                <app-shopping-detail-item
-                  [productItem]="product"
-                ></app-shopping-detail-item>
-              </div>
+<div class="div-setting">
+  <div class="container div-setting">
+    <div class="col-md-12">
+      <mat-tab-group
+        style="width: 900px;"
+        dynamicHeight
+        mat-align-tabs="center"
+        [color]="color"
+      >
+        <mat-tab label="New Arrival">
+          <div class="row top-buffer">
+            <div
+              class="col-md-3"
+              *ngFor="let product of productList | productFilter: searchTerm"
+            >
+              <app-shopping-detail-item
+                [productItem]="product"
+              ></app-shopping-detail-item>
             </div>
-          </mat-tab>
-          <mat-tab label="Trending"
-            ><div class="row">
-              <div
-                class="col-md-3"
-                *ngFor="let product of productList | productFilter: searchTerm"
-              >
-                <app-shopping-detail-item
-                  [productItem]="product"
-                ></app-shopping-detail-item>
-              </div></div
-          ></mat-tab>
-          <mat-tab label="Top Selling"
-            ><div class="row">
-              <div
-                class="col-md-3"
-                *ngFor="let product of productList | productFilter: searchTerm"
-              >
-                <app-shopping-detail-item
-                  [productItem]="product"
-                ></app-shopping-detail-item>
-              </div></div
-          ></mat-tab>
-        </mat-tab-group>
-      </div>
+          </div>
+        </mat-tab>
+        <mat-tab label="Trending"
+          ><div class="row">
+            <div
+              class="col-md-3"
+              *ngFor="let product of productList | productFilter: searchTerm"
+            >
+              <app-shopping-detail-item
+                [productItem]="product"
+              ></app-shopping-detail-item>
+            </div></div
+        ></mat-tab>
+        <mat-tab label="Top Selling"
+          ><div class="row">
+            <div
+              class="col-md-3"
+              *ngFor="let product of productList | productFilter: searchTerm"
+            >
+              <app-shopping-detail-item
+                [productItem]="product"
+              ></app-shopping-detail-item>
+            </div></div
+        ></mat-tab>
+      </mat-tab-group>
     </div>
   </div>
-</mat-card>
-
+</div>
 
 <!-- <mat-form-field class="example-form-field">
   <mat-label>Search product</mat-label>
@@ -121,7 +119,7 @@
   </mat-form-field>
 </div> -->
 
- <!-- <div class="row">
+<!-- <div class="row">
   <div
     class="col-md-4"
     *ngFor="let product of productList | productFilter: searchTerm"

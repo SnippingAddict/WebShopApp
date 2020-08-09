@@ -1,10 +1,54 @@
-<div class="row top-buffer">
-    <div
-      class="col-md-4"
-      *ngFor="let product of productList"
-    >
-      <app-shopping-detail-item
-        [productItem]="product"
-      ></app-shopping-detail-item>
+<!-- <div style="padding-top: 15px;">
+  <mat-card class="example-card">
+    <img class="image-set"  [src]="productItem.ImageUrl">
+    <mat-card-content>
+      <p class="p1">
+        <strong> {{ productItem.ItemName }} </strong>
+      </p>
+      <p class="p2">
+        <strong> {{ productItem.Price | currency: 'USD' }} </strong>
+      </p>
+    </mat-card-content>
+    <mat-card-actions class="card-action">
+      <button class="add-to-cart-btn" mat-raised-button color="primary" (click)="handleAddToCart()">
+        <mat-icon class="add-to-cart-icon" svgIcon="shopping-cart"></mat-icon>
+        Add to cart</button>
+    </mat-card-actions>
+  </mat-card>
+  </div> -->
+
+<div>
+  <div class="row">
+    <img class="image-set" [src]="productItem.ImageUrl" />
+    <div class="text-div">
+      <div class="col-sm-1">
+        <div class="row">
+          {{ productItem.ItemName }}
+          {{ productItem.Price | currency: "USD" }}
+        </div>
+      </div>
     </div>
   </div>
+  <div class="row">
+    <img class="image-set" [src]="productItem.ImageUrl" />
+    <div class="text-div">
+      <div class="col-sm-1">
+        <div class="row">
+          {{ productItem.ItemName }}
+          {{ productItem.Price | currency: "USD" }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <img class="image-set" [src]="productItem.ImageUrl" />
+    <div class="text-div">
+      <div class="col-sm-1">
+        <div class="row">
+          {{ productItem.ItemName }}
+          {{ productItem.Price | currency: "USD" }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

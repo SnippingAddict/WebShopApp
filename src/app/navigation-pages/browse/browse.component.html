@@ -9,7 +9,7 @@
   <img
     src="assets/images/pozadinafront.png"
     alt="Browse pozadina"
-    style="height: 180px; width: 1920px; opacity: 0.3;"
+    style="height: 180px; width: 1920px;"
   />
 </div>
 
@@ -33,8 +33,24 @@
             </section>
           </div>
         </div>
+        <div class="filter-div-2">
+          <div class="p-div">
+            <p class="p-filter">FEATURED COLLECTION</p>
+          </div>
+          <div style="padding-left: 15px;">
+            <app-browse-item></app-browse-item>
+          </div>
+        </div>
+        <div class="slika">
+          <img src="assets/images/browseslika.png" alt="" />
+        </div>
       </div>
       <div class="col-md-8">
+        <img
+        style="margin-bottom: 30px;"
+          src="https://cdn.shopify.com/s/files/1/0250/3793/0580/collections/categories-Banner_ac751b32-029b-4e4b-87c4-11260f5de6e8_870x200.png?v=1559632365"
+          alt=""
+        />
         <p class="p4">ELECTRONICS</p>
         <p class="p5">
           Here you will find everything that suit's your needs for electronic
@@ -44,16 +60,73 @@
           Select from a wide range of smartphones, laptops, tv's...
         </p>
         <p class="p5">You name it, we have it !</p>
-        <div class="item-div">
-          <app-browse-item></app-browse-item>
+        <div class="sort-div">
+          <div class="sortby-div">
+            <div class="row">
+              <div class="sort-text">
+                Sort by :
+              </div>
+              <div>
+                <mat-form-field appearance="fill">
+                  <mat-label>Toppings</mat-label>
+                  <mat-select [formControl]="toppings" multiple>
+                    <mat-select-trigger>
+                      {{ toppings.value ? toppings.value[0] : "" }}
+                      <span
+                        *ngIf="toppings.value?.length > 1"
+                        class="example-additional-selection"
+                      >
+                        (+{{ toppings.value.length - 1 }}
+                        {{ toppings.value?.length === 2 ? "other" : "others" }})
+                      </span>
+                    </mat-select-trigger>
+                    <mat-option
+                      *ngFor="let topping of toppingList"
+                      [value]="topping"
+                      >{{ topping }}</mat-option
+                    >
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
         </div>
-        <div>
-          <mat-paginator
-            [length]="100"
-            [pageSize]="10"
-            [pageSizeOptions]="[5, 10, 25, 100]"
-          >
-          </mat-paginator>
+        <div class="item-div">
+          <div>
+            <div class="row top-buffer">
+              <div class="col-md-4" *ngFor="let product of productList">
+                <app-shopping-detail-item
+                  [productItem]="product"
+                ></app-shopping-detail-item>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="paginator-div">
+          <div class="row">
+            <div
+              style="
+                padding-left: 30px;
+                padding-right: 100px;
+                padding-top: 15px;
+              "
+            >
+              <mat-form-field style="width: 100px;">
+                <mat-label>Page size</mat-label>
+                <input matInput [(ngModel)]="pageSize" type="number" />
+              </mat-form-field>
+            </div>
+            <div style="padding-top: 7px; padding-left: 15px;">
+              <mat-paginator
+                style="background-color: #f2f2f2;"
+                [length]="length"
+                [pageSize]="pageSize"
+                [pageSizeOptions]="pageSizeOptions"
+                (page)="onPageChange($event)"
+              >
+              </mat-paginator>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -11,57 +11,100 @@
   text-align: center;
   font-size: x-large;
   font-weight: 500;
+  color: #f2f2f2;
 }
 
 .p2 {
   text-align: center;
   font-size: 15px;
+  color: #f2f2f2;
 }
 
 .p3 {
-    color: #585858;
-    font-weight: 500;
-    padding-left: 15px;
-    padding-top: 10px;
-    font-size: 17px;
+  color: #585858;
+  font-weight: 500;
+  padding-left: 15px;
+  padding-top: 10px;
+  font-size: 17px;
 }
 
 .p4 {
-    color: #464646;
-    font-weight: 500;
-    font-size: 23px;
+  color: #464646;
+  font-weight: 500;
+  font-size: 23px;
 }
 
 .p5 {
-    color: #3f3e3e;
-    margin: 3px 0px 0px 0px;
+  color: #3f3e3e;
+  margin: 3px 0px 0px 0px;
 }
 
 .filter-div {
-    width: 280px;
-    height: 230px;
-    border: 1px solid #e2e0e0;
-    
+  width: 270px;
+  height: 230px;
+  border: 1px solid #e2e0e0;
+  margin-bottom: 35px;
+}
+
+.filter-div-2 {
+  width: 270px;
+  height: 412px;
+  border: 1px solid #e2e0e0;
+  margin-bottom: 35px;
 }
 
 .p-div {
-    height: 50px;
-    background-color: #f2f2f2;
-    color: #414141;
-
+  height: 50px;
+  background-color: #f2f2f2;
+  color: #414141;
 }
 
 .p-filter {
-    font-size: medium;
-    padding-left: 15px;
-    padding-top: 15px;
+  font-size: medium;
+  padding-left: 15px;
+  padding-top: 15px;
 }
 
 .checkbox {
-    width: 100px;
-    padding-left: 20px;
+  width: 100px;
+  padding-left: 20px;
 }
 
 .item-div {
-    width: 620px;
+  width: 620px;
+}
+
+.paginator-div {
+  margin-top: 15px;
+  height: 70px;
+  background-color: #f2f2f2;
+  width: 632px;
+}
+
+.sort-div {
+  margin-top: 15px;
+  height: 70px;
+  background-color: #f2f2f2;
+  width: 632px;
+}
+
+.sortby-div {
+  padding-top: 10px;
+  padding-left: 100px;
+  transform: translate(42%, 0%);
+}
+
+.sort-text {
+  padding-top: 15px;
+  padding-right: 10px;
+  color: #585858;
+}
+
+.example-additional-selection {
+  opacity: 0.75;
+  font-size: 0.75em;
+}
+
+.slika {
+  width: 280px;
 }
