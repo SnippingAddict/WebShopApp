@@ -48,6 +48,7 @@ import {
   OKTA_CONFIG,
   OktaAuthModule,
   OktaCallbackComponent,
+  OktaLoginRedirectComponent,
 } from '@okta/okta-angular';
 import { AuthInterceptor } from './shared/okta/auth.interceptor';
 import { MatDividerModule } from '@angular/material/divider';
@@ -59,6 +60,10 @@ import { CommonModule } from '@angular/common';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { BrowseItemComponent } from './navigation-pages/browse/browse-item/browse-item.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { ItemDetailsComponent } from './shopping-details/shopping-detail-list/shopping-detail-item/item-details/item-details.component';
+import { AppRoutingModule } from './app-routing-module';
+import { CheckoutComponent } from './shopping-details/cart/checkout/checkout.component';
+import { MatStepperModule } from '@angular/material/stepper';
 
 @Injectable()
 export class HammerConfig extends HammerGestureConfig {
@@ -72,9 +77,10 @@ export class HammerConfig extends HammerGestureConfig {
 
 const oktaConfig = {
   issuer: 'https://dev-745718.okta.com/oauth2/default',
-  redirectUri: 'http://localhost:4200/callback',
+  redirectUri: 'http://localhost:4200/implicit/callback',
   clientId: '0oagr3dscmF9tvvLl4x6',
   scopes: ['openid', 'profile'],
+  pkce: true,
 };
 
 const routes: Routes = [
@@ -84,8 +90,12 @@ const routes: Routes = [
     component: FrontPageComponent,
   },
   {
-    path: 'callback',
+    path: 'implicit/callback',
     component: OktaCallbackComponent,
+  },
+  {
+    path: 'login',
+    component: OktaLoginRedirectComponent,
   },
   {
     path: 'cart',
@@ -119,6 +129,8 @@ const routes: Routes = [
     BrowseComponent,
     AboutUsComponent,
     BrowseItemComponent,
+    ItemDetailsComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -151,6 +163,9 @@ const routes: Routes = [
     CommonModule,
     MatCheckboxModule,
     MatPaginatorModule,
+    AppRoutingModule,
+    OktaAuthModule,
+    MatStepperModule,
   ],
   providers: [
     ShoppingDetailService,

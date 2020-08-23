@@ -17,13 +17,33 @@
       <div style="margin-left: auto; margin-right: 0;">
         <div class="container">
           <div class="row">
-            <mat-icon class="example-icon" aria-hidden="false">person</mat-icon>
-            <span class="header-font">My Account </span>
+            <!-- <mat-icon class="example-icon" aria-hidden="false">person</mat-icon>
+            <a href="https://www.okta.com/#">
+              <span class="header-font">My Account </span>
+            </a>
             <mat-divider class="divider" [vertical]="true"></mat-divider>
             <mat-icon class="example-icon" aria-hidden="false"
               >favorite</mat-icon
             >
-            <span class="header-font">Wishlist</span>
+            <span class="header-font">Wishlist</span> -->
+            <div>
+              <button
+                mat-button
+                class="log"
+                *ngIf="!isAuthenticated"
+                (click)="login()"
+              >
+                Login
+              </button>
+              <button
+                mat-button
+                class="log"
+                *ngIf="isAuthenticated"
+                (click)="logout()"
+              >
+                Logout
+              </button>
+            </div>
             <mat-divider class="divider" [vertical]="true"></mat-divider>
             <mat-icon class="example-icon" aria-hidden="false">phone</mat-icon>
             <span class="header-font">+(381)63 123 1234</span>
@@ -52,7 +72,7 @@
               >search</mat-icon
             >
             <mat-label>Search products</mat-label>
-            <input matInput placeholder="" />
+            <input matInput placeholder="" [(ngModel)]="searchTerm" />
           </mat-form-field>
         </div>
       </div>
@@ -89,11 +109,11 @@
               (click)="toggleCart()"
               color="accent"
             >
-              <div  class="d-flex justify-content-center">
+              <div class="d-flex justify-content-center">
                 <div class="row">
                   Cart
                   <div *ngIf="show" class="counter">
-                    <p style="line-height: 22px;">{{ broj }}</p> 
+                    <p style="line-height: 22px;">{{ broj }}</p>
                   </div>
                 </div>
               </div>
@@ -114,15 +134,19 @@
   </div>
 </div>
 
- <!-- <app-front-page *ngIf="isVisibleFrontPage"></app-front-page> -->
+<app-front-page *ngIf="isVisibleFrontPage"></app-front-page>
 
-<!-- <app-cart [hidden]="isVisibleCart"></app-cart> -->
+<app-about-us *ngIf="isVisibleAboutUs"></app-about-us>
 
-<!-- *ngIf="isVisibleAboutUs --> 
-<app-about-us ></app-about-us>
+<app-browse [hidden]="isVisibleBrowse" [productItem]="product"></app-browse>
 
-<!-- <app-browse [hidden]="isVisibleBrowse" ></app-browse> -->
+<app-item-details [hidden]="isVisibleItemDetails"></app-item-details>
 
+<app-cart [hidden]="isVisibleCart"></app-cart>
+
+<app-checkout *ngIf="isAuthenticated && isVisibleCheckout"></app-checkout>
+
+<router-outlet></router-outlet>
 
 <app-footer></app-footer>
 

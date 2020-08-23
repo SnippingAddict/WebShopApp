@@ -1,0 +1,87 @@
+<div style="padding-top: 30px;">
+  <div class="d-flex justify-content-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="img-hover-zoom">
+            <img [src]="productItem.ImageUrl" />
+          </div>
+        </div>
+        <div class="col-md-4">
+          <p class="p1">
+            <strong> {{ productItem.ItemName }} </strong>
+          </p>
+          <p class="p2">
+            <strong> {{ productItem.Price | currency: "USD" }} </strong>
+          </p>
+          <p>
+            <span class="sp1">Vendor : </span> <span> </span>
+            <span class="sp2"> TechDream</span>
+          </p>
+
+          <p>
+            <span class="sp1">Product Type : </span> <span> </span>
+            <span class="sp2"> Electronic</span>
+          </p>
+          <div style="padding-top: 20px;">
+            <button class="button1" mat-button color="primary">
+              ADD TO CART
+            </button>
+          </div>
+          <div style="padding-top: 20px;">
+            <button class="button2" mat-button color="primary">
+              BUY IT NOW
+            </button>
+          </div>
+          <div style="padding-top: 30px;">
+            <img
+              src="https://cdn.shopify.com/s/files/1/0250/3793/0580/files/trust_387x42.png?v=1569217585"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+      <div style="padding-top: 30px;">
+        <mat-tab-group mat-stretch-tabs>
+          <mat-tab label="Description">
+            <div>
+              <p>
+                Faded short sleeves t-shirt with high neckline. Soft and
+                stretchy material for a comfortable fit. Accessorize with a
+                straw hat and you're ready for summer!
+              </p>
+            </div>
+            <div>
+              <h4>Sample Unordered List</h4>
+            </div>
+            <div>
+              <ul>
+                <li>Comodous in tempor ullamcorper miaculis</li>
+                <li>Pellentesque vitae neque mollis urna mattis laoreet.</li>
+                <li>Divamus sit amet purus justo.</li>
+                <li>
+                  Proin molestie egestas orci ac suscipit risus posuere loremou.
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4>Sample Ordered Lista</h4>
+            </div>
+            <div>
+              <ol>
+                <li>Comodous in tempor ullamcorper miaculis</li>
+                <li>Pellentesque vitae neque mollis urna mattis laoreet.</li>
+                <li>Divamus sit amet purus justo.</li>
+                <li>
+                  Proin molestie egestas orci ac suscipit risus posuere
+                  loremous.
+                </li>
+              </ol>
+            </div>
+          </mat-tab>
+          <mat-tab label="Shipping and returns"> Content 2 </mat-tab>
+        </mat-tab-group>
+      </div>
+    </div>
+  </div>
+</div>

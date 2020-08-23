@@ -1,0 +1,101 @@
+<div class="container">
+  <div class="col-md-12">
+    <mat-horizontal-stepper labelPosition="bottom" #stepper>
+      <mat-step [stepControl]="firstFormGroup">
+        <form [formGroup]="firstFormGroup">
+          <ng-template matStepLabel>Fill out your name</ng-template>
+          <div class="col-md-1">
+            <mat-form-field>
+              <mat-label>First name</mat-label>
+              <input
+                matInput
+                placeholder="First name"
+                formControlName="firstCtrl"
+                required
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Last name</mat-label>
+              <input
+                matInput
+                placeholder="Last name"
+                formControlName="firstCtrl"
+                required
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Phone number</mat-label>
+              <input
+                matInput
+                placeholder="Phone number"
+                formControlName="firstCtrl"
+                required
+              />
+            </mat-form-field>
+          </div>
+
+          <div>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="secondFormGroup" optional>
+        <form [formGroup]="secondFormGroup">
+          <ng-template matStepLabel>Fill out your address</ng-template>
+          <div class="col-md-1">
+            <mat-form-field>
+              <mat-label>Country</mat-label>
+              <input
+                matInput
+                formControlName="secondCtrl"
+                placeholder="Ex. France"
+                required
+              />
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Address</mat-label>
+              <input
+                matInput
+                formControlName="secondCtrl"
+                placeholder="Ex. 1 Main St, New York, NY"
+                required
+              />
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Credit card number</mat-label>
+              <input
+                matInput
+                formControlName="secondCtrl"
+                placeholder="Ex. 1 Main St, New York, NY"
+                required
+              />
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>CSC</mat-label>
+              <input
+                matInput
+                formControlName="secondCtrl"
+                placeholder="512"
+                required
+              />
+            </mat-form-field>
+          </div>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+        <p>Thank you for your purchase.</p>
+        <div>
+          <button mat-button (click)="checkoutPage()">Back to browse</button>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </div>
+</div>

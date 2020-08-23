@@ -62,13 +62,19 @@ export class ShoppingDetailItemComponent implements OnInit {
     this.productSr.getProductsById(1)
   }
 
-
+  opetItemDetails() {
+    this.productSr.addProductToCart(this.productItem).subscribe(() => {
+     this.msg.sendItem(this.productItem)
+     console.log(this.productItem)
+   })
+ }
   
   snackBarMsg = "Product added"
 
    handleAddToCart() {
      this.productSr.addProductToCart(this.productItem).subscribe(() => {
       this.msg.sendMsg(this.productItem)
+      console.log(this.productItem)
     })
     let snackBarRef = this._snackBar.open("Product added", 'Close', {
       duration: 2000

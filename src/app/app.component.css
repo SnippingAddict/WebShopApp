@@ -1,69 +1,80 @@
 *:focus {
-    outline: 0px transparent !important; 
+  outline: 0px transparent !important;
 }
 
 .form-search-bar {
-    width: 500px;
-    padding-left: 30px;
-    padding-top: 23px;
-    display: inline-block;
+  width: 500px;
+  padding-left: 30px;
+  padding-top: 23px;
+  display: inline-block;
 }
 
 .button1 {
-    width: 190px;
-    height: 45px;
-    font-size: 15px;
-    color: #f7f7f7;
-    background-color: transparent !important;
-    letter-spacing: 1px;
-    font-weight: 400;
-    border-radius: 0px;
+  width: 190px;
+  height: 45px;
+  font-size: 15px;
+  color: #f7f7f7;
+  background-color: transparent !important;
+  letter-spacing: 1px;
+  font-weight: 400;
+  border-radius: 0px;
 }
 
 .nav-div {
-    background-color: #303030;
-    position: relative;
+  background-color: #303030;
+  position: relative;
 }
 
 .nav-item {
-    display: inline-block;
-    padding-right: 23px;
+  display: inline-block;
+  padding-right: 23px;
 }
 
 .mat-toolbar {
-    background-color: #f5f5f5;
-    color: #4f4f4f;
-    border-bottom: 1px solid #d9d9d9;
-    height: 50px;
-  }
-  
-  .counter {
-      width: 20px;
-      height: 20px;
-      border-radius: 20px;
-      background-color: #cc473d;
-      color: #f7f7f7;
-      text-align: center;
-      font-size: 12px;
-  }
+  background-color: #f5f5f5;
+  color: #4f4f4f;
+  border-bottom: 1px solid #d9d9d9;
+  height: 50px;
+}
 
-  .example-icon {
-      font-size: 15px;
-      padding-top: 7px;
-  }
-  
-  .header-font {
-      font-size: 13px;
-      vertical-align: middle;
-      padding-right: 16px;
-  }
-  
-  .example-spacer {
-    flex: 1 1 auto;
-  }
-  
-  .divider { 
-      margin-top: 5px;
-      margin-right: 8px;
-      height: 20px;
-  }
+.counter {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background-color: #cc473d;
+  color: #f7f7f7;
+  text-align: center;
+  font-size: 12px;
+}
+
+.example-icon {
+  font-size: 15px;
+  padding-top: 10px;
+}
+
+.example-icon2 {
+  font-size: 15px;
+  padding-top: 3px;
+}
+
+.header-font {
+    padding-top: 3px;
+  font-size: 13px;
+  vertical-align: middle;
+  padding-right: 16px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.divider {
+  margin-top: 8px;
+  margin-right: 8px;
+  height: 20px;
+}
+
+.log {
+  font-size: 13px;
+  width: 50px;
+}

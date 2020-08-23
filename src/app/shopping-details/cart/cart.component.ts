@@ -8,6 +8,8 @@ import { Observable } from 'rxjs';
 import { productsUrl } from 'src/app/config/api';
 import { CookieService } from 'ngx-cookie-service';
 import { CartItemComponent } from './cart-item/cart-item.component';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { OktaAuthService } from '@okta/okta-angular';
 
 export interface CartItems {
   product: string;
@@ -23,31 +25,42 @@ export interface CartItems {
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
+  @Input() productItems: any;
 
-   @Input() productItems: any
+  @Input() cartItems: Product[] = [];
 
-   @Input() cartItems: Product[] = [];
+  @Input() products: Product;
+  @Input() product: Product;
+  private cookieValue: any;
+  @Input() cartSubtotal = 0;
 
-   @Input() products: Product
-   @Input() product: Product
-   private cookieValue: any;
-   @Input() cartSubtotal = 0;
+  brPromene = true;
+
+  isAuthenticated: any;
 
   constructor(
     private msg: MessengerService,
     private cartService: CartService,
     public productSr: ProductService,
-    private cookieService: CookieService
-  ) {
-     
-  }
+    private cookieService: CookieService,
+    private route: ActivatedRoute,
+    public oktaAuth: OktaAuthService
+  ) {}
 
   ngOnInit() {
-     this.handleSubscription();
+    this.handleSubscription();
     // if (this.transactions !== [0]) {
     //   this.transactions = JSON.parse(localStorage.getItem('Array'));
     // }
-    console.log(this.transactions)
+    console.log(this.brPromene);
+
+    console.log(this.transactions);
+  }
+
+  checkAuth() {}
+
+  checkoutPage() {
+      this.msg.sendIsAutenticated(this.brPromene);
   }
 
   setCookie() {
@@ -58,20 +71,23 @@ export class CartComponent implements OnInit {
 
   handleSubscription() {
     this.msg.getMsg().subscribe((product: Product) => {
-      if (this.transactions.find((test) => test.ItemName === product.ItemName) === undefined) {
+      if (
+        this.transactions.find((test) => test.ItemName === product.ItemName) ===
+        undefined
+      ) {
         this.transactions.push(product);
-      } 
-      this.products = product
-      this.product = product
-        if (this.products.Quantity < this.product.InStock) {
-          this.products.Quantity++;
-          this.products.Total = this.products.Quantity * this.products.Price
-          console.log(this.total)
-        } else {
-          console.log("There are no more in stock !")
-        }
-        // localStorage.setItem('Array', JSON.stringify(this.transactions))
-    })
+      }
+      this.products = product;
+      this.product = product;
+      if (this.products.Quantity < this.product.InStock) {
+        this.products.Quantity++;
+        this.products.Total = this.products.Quantity * this.products.Price;
+        console.log(this.total);
+      } else {
+        console.log('There are no more in stock !');
+      }
+      // localStorage.setItem('Array', JSON.stringify(this.transactions))
+    });
   }
 
   addQuantity(item: Product) {
@@ -79,38 +95,39 @@ export class CartComponent implements OnInit {
       item.Quantity++;
       item.Total = item.Quantity * item.Price;
     } else {
-      console.log("There are no more in stock !")
+      console.log('There are no more in stock !');
     }
   }
 
   removeQuantity(item: Product) {
-    if (item.Quantity > 1 ) {
+    if (item.Quantity > 1) {
       item.Quantity--;
-      item.Total = item.Price * item.Quantity
+      item.Total = item.Price * item.Quantity;
     }
   }
 
   deleteMsg(item: Product) {
     if (item.Quantity == 1) {
       const index: number = this.transactions.indexOf(item);
-    if (index !== -1) {
+      if (index !== -1) {
         this.transactions.splice(index, 1);
-        item.Quantity--
-    } 
-  } else {
-    const index: number = this.transactions.indexOf(item);
-    this.transactions.splice(index, 1);
-    item.Quantity = 0
-    item.Total = item.Price * item.Quantity
+        item.Quantity--;
+      }
+    } else {
+      const index: number = this.transactions.indexOf(item);
+      this.transactions.splice(index, 1);
+      item.Quantity = 0;
+      item.Total = item.Price * item.Quantity;
+    }
   }
-}
 
   displayedColumns: string[] = ['ItemName', 'Price'];
-  transactions: any[] = []
+  transactions: any[] = [];
 
   /** Gets the total cost of all transactions. */
   getTotalCost() {
-    return this.transactions.map(t => t.Price * t.Quantity).reduce((acc, value) => acc + value, 0);
+    return this.transactions
+      .map((t) => t.Price * t.Quantity)
+      .reduce((acc, value) => acc + value, 0);
   }
-
 }

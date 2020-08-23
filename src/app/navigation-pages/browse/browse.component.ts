@@ -18,6 +18,7 @@ export class BrowseComponent implements OnInit {
   pageSize = 6;
   pageSizeOptions: number[] = [6, 12, 24];
   pageIndex = 0;
+  @Input() searchTerm: string;
 
   toppings = new FormControl();
 

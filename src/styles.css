@@ -1,40 +1,50 @@
 /* You can add global styles to this file, and also import other style files */
-@import '@angular/material/prebuilt-themes/indigo-pink.css';
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
 
-
-
-input.ng-touched.ng-invalid{
-    border-color: #dc3545;
+input.ng-touched.ng-invalid {
+  border-color: #dc3545;
 }
 
-input.ng-valid{
-    border-color: #28a745;
+input.ng-valid {
+  border-color: #28a745;
 }
 
-.green-icon{
-    color: #28a745;
+.green-icon {
+  color: #28a745;
 }
-.red-icon{
-    color: #dc3545;
+.red-icon {
+  color: #dc3545;
 }
 
 #toast-container > div {
-    opacity:1;
+  opacity: 1;
 }
 
-table tr:hover{
-    cursor: pointer;
+table tr:hover {
+  cursor: pointer;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
-.mat-tab-header{
-    background-color: #f2f2f2;
+.mat-tab-header {
+  background-color: #f2f2f2;
 }
 .md-tabs md-ink-bar {
-    color: #ff4081 !important;
+  color: #ff4081 !important;
 }
 
-.md-tabs.md-default-theme md-ink-bar, md-tabs md-ink-bar {
-    color: #ff4081 !important;
+.remove-border-bottom .mat-tab-header {
+  border-bottom: none;
+}
+
+.md-tabs.md-default-theme md-ink-bar,
+md-tabs md-ink-bar {
+  color: #ff4081 !important;
 }

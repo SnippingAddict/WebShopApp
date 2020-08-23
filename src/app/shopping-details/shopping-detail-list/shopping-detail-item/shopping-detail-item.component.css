@@ -12,7 +12,7 @@
 .mat-card {
     transition: none !important;
     box-shadow: none !important;
-    background-color: #ebebeb;
+    background-color: #f0f0f0;
     color: #545454;
     font-weight: 500;
     font-size: 12.5pt;
@@ -25,9 +25,9 @@
 }
 
 .example-card {
-    border: 2px solid #ededed;
+    border: 3px solid #f3f3f3;
     width: 200px;
-    height: 330px;
+    height: 310px;
     transition: none !important;
     box-shadow: none !important;
     background-color: #fafafa;
@@ -36,8 +36,9 @@
   }
 
 .image-set {
-    border-bottom: 2px solid #ededed;
+    border-bottom: 3px solid #f3f3f3;
     margin: 0px;
+    background-color: white;
 }
 
 .p1 {
@@ -56,11 +57,12 @@
 }
 
 .add-to-cart-btn {
-    background-color: #2ed177;
+    background-color: #ff4081;
     transition: none !important;
     box-shadow: none !important;
     margin-bottom: -5px;
     width: 145px;
+    color: white;
 }
 
 .add-to-cart-icon {

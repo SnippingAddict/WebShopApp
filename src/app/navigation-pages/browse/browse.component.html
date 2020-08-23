@@ -91,10 +91,12 @@
             </div>
           </div>
         </div>
+        
         <div class="item-div">
           <div>
+            
             <div class="row top-buffer">
-              <div class="col-md-4" *ngFor="let product of productList">
+              <div class="col-md-4" *ngFor="let product of productList | productFilter: searchTerm">
                 <app-shopping-detail-item
                   [productItem]="product"
                 ></app-shopping-detail-item>
