@@ -8,8 +8,9 @@ import { ProductService } from 'src/app/shared/services/product.service';
   styleUrls: ['./browse-item.component.css'],
 })
 export class BrowseItemComponent implements OnInit {
-  
   @Input() productItem: Product;
+  @Input() productItem2: Product;
+  @Input() productItem3: Product;
   @Input('product') productName: string;
 
   @Input() productList: Product[] = [];
@@ -18,14 +19,27 @@ export class BrowseItemComponent implements OnInit {
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
-    this.loadProducts();
     this.loadProductById(1);
+    this.loadProductById2(2);
+    this.loadProductById3(3);
   }
 
   loadProductById(id) {
     this.productService.getProductById(id).subscribe((productId) => {
       this.productItem = productId;
-    })
+    });
+  }
+
+  loadProductById2(id) {
+    this.productService.getProductById(id).subscribe((productId) => {
+      this.productItem2 = productId;
+    });
+  }
+
+  loadProductById3(id) {
+    this.productService.getProductById(id).subscribe((productId) => {
+      this.productItem3 = productId;
+    });
   }
 
   loadProducts() {

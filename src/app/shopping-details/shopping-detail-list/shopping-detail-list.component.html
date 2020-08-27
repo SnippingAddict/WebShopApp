@@ -61,7 +61,7 @@
           <div class="row top-buffer">
             <div
               class="col-md-3"
-              *ngFor="let product of productList | productFilter: searchTerm"
+              *ngFor="let product of productList | productFilter: searchTerm:itemName"
             >
               <app-shopping-detail-item
                 [productItem]="product"
@@ -73,7 +73,7 @@
           ><div class="row">
             <div
               class="col-md-3"
-              *ngFor="let product of productList | productFilter: searchTerm"
+              *ngFor="let product of productList | productFilter: searchTerm:itemName"
             >
               <app-shopping-detail-item
                 [productItem]="product"
@@ -84,7 +84,7 @@
           ><div class="row">
             <div
               class="col-md-3"
-              *ngFor="let product of productList | productFilter: searchTerm"
+              *ngFor="let product of productList | productFilter: searchTerm:itemName"
             >
               <app-shopping-detail-item
                 [productItem]="product"

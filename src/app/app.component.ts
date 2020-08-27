@@ -21,6 +21,9 @@ export class AppComponent implements OnInit {
   show: boolean;
   producut: any;
 
+  @Input()
+  multi: boolean;
+
   brPromene: boolean;
 
   isVisibleItemDetails = true;
@@ -40,6 +43,7 @@ export class AppComponent implements OnInit {
     this.itemNumber();
     this.broj = 0;
     this.show = false;
+    console.log(this.msg.getBr());
     this.handleSubscription();
     if (this.product != undefined) {
       this.toggleItemDetails();
@@ -47,8 +51,10 @@ export class AppComponent implements OnInit {
     this.toggleCheckout();
     console.log(this.brPromene);
     this.toggleCheckout();
-    this.toggleCheckoutBrowse()
+    this.toggleCheckoutBrowse();
     this.logino();
+    this.itemMinus();
+    this.toggleShopNow();
   }
 
   async logino() {
@@ -57,6 +63,33 @@ export class AppComponent implements OnInit {
     this.oktaAuth.$authenticationState.subscribe(
       (isAuthenticated: boolean) => (this.isAuthenticated = isAuthenticated)
     );
+  }
+
+  onKeydown(event) {
+    if (event.key === 'Enter') {
+      this.msg.sendSearch(this.searchTerm);
+      this.isVisibleBrowse = false;
+      this.isVisibleFrontPage = false;
+      console.log(this.searchTerm);
+      console.log(event);
+    }
+  }
+
+  activateCategory(value: number, category: string) {
+    if ((value = 1)) {
+      this.msg.sendCategory(category);
+      this.isVisibleBrowse = false;
+      this.isVisibleFrontPage = false;
+    } else if ((value = 2)) {
+      this.msg.sendCategory(category);
+    } else if ((value = 3)) {
+      this.msg.sendCategory(category);
+    } else if ((value = 4)) {
+      this.msg.sendCategory(category);
+    } else if ((value = 5)) {
+      this.msg.sendCategory(category);
+    }
+    console.log(category);
   }
 
   testAuth() {
@@ -75,6 +108,13 @@ export class AppComponent implements OnInit {
 
   logout() {
     this.oktaAuth.logout('/');
+  }
+
+  itemMinus() {
+    this.msg.getMinus().subscribe((product: any) => {
+      this.broj--;
+      console.log(this.broj);
+    });
   }
 
   itemNumber() {
@@ -96,17 +136,24 @@ export class AppComponent implements OnInit {
     });
   }
 
+  toggleShopNow() {
+    this.msg.getBrowse().subscribe((promena: any) => {
+      this.isVisibleBrowse = false;
+      this.isVisibleFrontPage = false;
+    });
+  }
+
   toggleCheckoutBrowse() {
     this.msg.getCheckoutTrue().subscribe((promena: any) => {
       this.isVisibleBrowse = promena;
       this.isVisibleCheckout = false;
-    })
+    });
   }
 
   toggleCheckout() {
     this.msg.getIsAuthenticated().subscribe((promena: any) => {
-      this.isVisibleCheckout = promena
-      console.log(this.isVisibleCheckout)
+      this.isVisibleCheckout = promena;
+      console.log(this.isVisibleCheckout);
       this.isVisibleCart = true;
     });
   }

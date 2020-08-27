@@ -14,7 +14,7 @@
 <mat-toolbar class="mat-toolbar">
   <div class="container">
     <div class="row">
-      <div style="margin-left: auto; margin-right: 0;">
+      <div style="margin-left: auto; margin-right: 0">
         <div class="container">
           <div class="row">
             <!-- <mat-icon class="example-icon" aria-hidden="false">person</mat-icon>
@@ -46,7 +46,7 @@
             </div>
             <mat-divider class="divider" [vertical]="true"></mat-divider>
             <mat-icon class="example-icon" aria-hidden="false">phone</mat-icon>
-            <span class="header-font">+(381)63 123 1234</span>
+            <span class="header-font">+(123)23 123 1234</span>
           </div>
         </div>
       </div>
@@ -56,7 +56,7 @@
 
 <div class="container">
   <div class="col">
-    <div style="padding-top: 20px; padding-bottom: 20px;">
+    <div style="padding-top: 20px; padding-bottom: 20px">
       <div class="row">
         <div class="col-md-3">
           <img src="assets/images/sajtlogo.png" alt="Logo sajta" />
@@ -68,11 +68,9 @@
             color="accent"
             appearance="outline"
           >
-            <mat-icon style="color: gray !important;" matSuffix
-              >search</mat-icon
-            >
+            <mat-icon style="color: gray !important" matSuffix>search</mat-icon>
             <mat-label>Search products</mat-label>
-            <input matInput placeholder="" [(ngModel)]="searchTerm" />
+            <input matInput placeholder="" (keydown)="onKeydown($event)" [(ngModel)]="searchTerm" />
           </mat-form-field>
         </div>
       </div>
@@ -80,12 +78,22 @@
   </div>
 </div>
 
-<div style="background-color: #303030;">
+<div style="background-color: #303030">
   <div class="d-flex justify-content-center">
     <div class="nav-div">
       <div class="container">
         <div class="row">
           <div class="d-flex justify-content-center">
+            <button class="button1" mat-button [matMenuTriggerFor]="menu">
+              Categories
+            </button>
+            <mat-menu #menu="matMenu">
+              <button class="meni" (click)="activateCategory(1, 'mobile')" mat-menu-item>Smartphone's</button>
+              <button class="meni" (click)="activateCategory(2, 'speaker')" mat-menu-item>Speaker's</button>
+              <button class="meni" (click)="activateCategory(3, 'processor')" mat-menu-item>Processor's</button>
+              <button class="meni" (click)="activateCategory(4, 'laptop')" mat-menu-item>Laptops</button>
+              <button class="meni" (click)="activateCategory(5, 'tv')" mat-menu-item>TV's</button>
+            </mat-menu>
             <button
               mat-button
               class="button1"
@@ -103,21 +111,6 @@
               Browse
             </button>
             <!-- <button mat-button class="button1" color="accent">Categories</button> -->
-            <button
-              mat-button
-              class="button1"
-              (click)="toggleCart()"
-              color="accent"
-            >
-              <div class="d-flex justify-content-center">
-                <div class="row">
-                  Cart
-                  <div *ngIf="show" class="counter">
-                    <p style="line-height: 22px;">{{ broj }}</p>
-                  </div>
-                </div>
-              </div>
-            </button>
 
             <button
               mat-button
@@ -127,28 +120,46 @@
             >
               About us
             </button>
+
+            <button
+              mat-button
+              class="button1"
+              (click)="toggleCart()"
+              color="accent"
+            >
+              <div class="d-flex justify-content-center">
+                <div class="row">
+                  Cart
+                  <div class="counter">
+                    <p style="line-height: 22px">{{ broj }}</p>
+                  </div>
+                </div>
+              </div>
+            </button>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+<app-browse [hidden]="isVisibleBrowse" [productItem]="product"></app-browse>
 
 <app-front-page *ngIf="isVisibleFrontPage"></app-front-page>
 
-<app-about-us *ngIf="isVisibleAboutUs"></app-about-us>
-
-<app-browse [hidden]="isVisibleBrowse" [productItem]="product"></app-browse>
-
-<app-item-details [hidden]="isVisibleItemDetails"></app-item-details>
 
 <app-cart [hidden]="isVisibleCart"></app-cart>
+
+<!-- <app-item-details [hidden]="isVisibleItemDetails"></app-item-details> -->
+
+<app-about-us *ngIf="isVisibleAboutUs"></app-about-us>
 
 <app-checkout *ngIf="isAuthenticated && isVisibleCheckout"></app-checkout>
 
 <router-outlet></router-outlet>
 
 <app-footer></app-footer>
+
+<!-- <app-shopping-detail-list></app-shopping-detail-list> -->
 
 <!-- <div class="container">
   <div class="row">

@@ -64,6 +64,8 @@ import { ItemDetailsComponent } from './shopping-details/shopping-detail-list/sh
 import { AppRoutingModule } from './app-routing-module';
 import { CheckoutComponent } from './shopping-details/cart/checkout/checkout.component';
 import { MatStepperModule } from '@angular/material/stepper';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatMenuModule } from '@angular/material/menu';
 
 @Injectable()
 export class HammerConfig extends HammerGestureConfig {
@@ -166,6 +168,8 @@ const routes: Routes = [
     AppRoutingModule,
     OktaAuthModule,
     MatStepperModule,
+    MatExpansionModule,
+    MatMenuModule,
   ],
   providers: [
     ShoppingDetailService,

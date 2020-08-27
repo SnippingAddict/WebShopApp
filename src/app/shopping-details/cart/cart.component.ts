@@ -35,7 +35,7 @@ export class CartComponent implements OnInit {
   @Input() cartSubtotal = 0;
 
   brPromene = true;
-
+  broj = 1;
   isAuthenticated: any;
 
   constructor(
@@ -60,7 +60,7 @@ export class CartComponent implements OnInit {
   checkAuth() {}
 
   checkoutPage() {
-      this.msg.sendIsAutenticated(this.brPromene);
+    this.msg.sendIsAutenticated(this.brPromene);
   }
 
   setCookie() {
@@ -107,6 +107,7 @@ export class CartComponent implements OnInit {
   }
 
   deleteMsg(item: Product) {
+    this.msg.sendMinus(this.product);
     if (item.Quantity == 1) {
       const index: number = this.transactions.indexOf(item);
       if (index !== -1) {

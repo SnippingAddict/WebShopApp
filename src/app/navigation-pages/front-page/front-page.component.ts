@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { MessengerService } from 'src/app/shared/services/messenger.service';
 
 @Component({
   selector: 'app-front-page',
@@ -7,9 +8,16 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
   styleUrls: ['./front-page.component.css'],
 })
 export class FrontPageComponent implements OnInit {
-  constructor() {}
+  constructor(private msg: MessengerService) {}
+
+  switch = true;
 
   ngOnInit() {}
+
+  browseSwitch() {
+    this.msg.sendBrowse(this.switch)
+    console.log(this.switch)
+  }
 
   customOptions: OwlOptions = {
     loop: true,
@@ -18,6 +26,8 @@ export class FrontPageComponent implements OnInit {
     pullDrag: false,
     dots: true,
     navSpeed: 700,
+    autoplay:true,
+    autoplayTimeout:3000,
     animateOut: 'fadeOut',
     navText: ['', ''],
     responsive: {

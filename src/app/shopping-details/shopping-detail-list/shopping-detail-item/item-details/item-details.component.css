@@ -59,3 +59,31 @@
     letter-spacing: 1px;
     font-weight: 400;
   }
+
+  .p3 {
+    color: #878787;
+  }
+
+  .h1 {
+    font-size: 16px;
+    color: #202020;
+    font-weight: 450;
+  }
+
+  .h2 {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #202020;
+    font-weight: 450;
+  }
+
+  .l1 {
+    margin-left: 20px;
+    list-style-type: circle;
+    color: #878787;
+  }
+
+  .l2 {
+    margin-left: 20px;
+    color: #878787;
+  }

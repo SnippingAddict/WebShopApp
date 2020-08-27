@@ -25,7 +25,7 @@ export class ShoppingDetailListComponent implements OnInit {
   productList: Product[] = [];
   product: any;
   searchTerm: string;
-
+  itemName: string
   @Input()
   color: ThemePalette = "accent";
 

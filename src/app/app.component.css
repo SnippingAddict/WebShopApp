@@ -20,6 +20,11 @@
   border-radius: 0px;
 }
 
+.meni {
+  width: 190px;
+  text-align: start;
+}
+
 .nav-div {
   background-color: #303030;
   position: relative;
@@ -58,7 +63,7 @@
 }
 
 .header-font {
-    padding-top: 3px;
+  padding-top: 3px;
   font-size: 13px;
   vertical-align: middle;
   padding-right: 16px;
@@ -77,4 +82,9 @@
 .log {
   font-size: 13px;
   width: 50px;
+}
+
+.expand {
+  left: -50%;
+  position: absolute;
 }

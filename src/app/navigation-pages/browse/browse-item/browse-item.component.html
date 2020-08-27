@@ -21,7 +21,7 @@
   <div class="row">
     <img class="image-set" [src]="productItem.ImageUrl" />
     <div class="text-div">
-      <div class="col-sm-1">
+      <div class="col-sm-2">
         <div class="row">
           {{ productItem.ItemName }}
           {{ productItem.Price | currency: "USD" }}
@@ -30,23 +30,33 @@
     </div>
   </div>
   <div class="row">
-    <img class="image-set" [src]="productItem.ImageUrl" />
+    <img class="image-set" [src]="productItem2.ImageUrl" />
     <div class="text-div">
-      <div class="col-sm-1">
-        <div class="row">
-          {{ productItem.ItemName }}
-          {{ productItem.Price | currency: "USD" }}
+      <div class="col-md-1">
+        <div style="background-color: black;">
+          <div class="row">
+            <div style="width: 100px; height: 20px;">
+              <p style="width: 120px;">
+                {{ productItem2.ItemName }}
+              </p>
+            </div>
+            {{ productItem2.Price | currency: "USD" }}
+          </div>
         </div>
       </div>
     </div>
   </div>
   <div class="row">
-    <img class="image-set" [src]="productItem.ImageUrl" />
+    <img class="image-set" [src]="productItem3.ImageUrl" />
     <div class="text-div">
       <div class="col-sm-1">
         <div class="row">
-          {{ productItem.ItemName }}
-          {{ productItem.Price | currency: "USD" }}
+          <div style="width: 100px; height: 20px;">
+            <p style="width: 120px;">
+              {{ productItem3.ItemName }}
+            </p>
+          </div>
+          {{ productItem3.Price | currency: "USD" }}
         </div>
       </div>
     </div>

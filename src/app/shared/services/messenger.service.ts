@@ -10,12 +10,49 @@ export class MessengerService {
   subject2 = new Subject()
   subject3 = new Subject()
   subject4 = new Subject()
-
+  subject5 = new Subject()
+  subject6 = new Subject()
+  subject7 = new Subject()
   
+  category = new Subject()
+  search = new Subject()
+
   constructor() { }
+
+  sendCategory(category) {
+    this.category.next(category)
+  }
+
+  getCategory() {
+    return this.category.asObservable()
+  }
+
+  sendSearch(search) {
+    this.search.next(search)
+  }
+
+  getSearch() {
+    return this.search.asObservable()
+  }
 
   sendMsg(product) {
     this.subject.next(product) //Triggering an event
+  }
+
+  sendBr(broj) {
+    this.subject5.next(broj)
+  }
+   
+  getBr() {
+    return this.subject5.asObservable()
+  }
+
+  sendMinus(item) {
+    this.subject7.next(item)
+  }
+
+  getMinus() {
+    return this.subject7.asObservable()
   }
 
   sendItem(product) {
@@ -28,6 +65,14 @@ export class MessengerService {
 
   sendCheckoutTrue(brPromene) {
     this.subject4.next(brPromene)
+  }
+
+  sendBrowse(brPromene) {
+    this.subject6.next(brPromene)
+  }
+
+  getBrowse() {
+    return this.subject6.asObservable()
   }
 
   getIsAuthenticated() {
