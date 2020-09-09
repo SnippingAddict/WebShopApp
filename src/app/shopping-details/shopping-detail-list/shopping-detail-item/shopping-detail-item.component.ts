@@ -71,7 +71,6 @@ export class ShoppingDetailItemComponent implements OnInit {
   opetItemDetails() {
     this.productSr.addProductToCart(this.productItem).subscribe(() => {
       this.msg.sendItem(this.productItem);
-      this.msg.sendCategory(this.nista);
       console.log(this.productItem);
     });
   }

@@ -110,10 +110,10 @@
                 <div>
                   <mat-form-field appearance="fill">
                     <mat-label>Select an option</mat-label>
-                    <mat-select (change)="sort($event)" disableRipple>
+                    <mat-select (selectionChange)="sort($event)" disableRipple>
                       <mat-option value="ItemName">Name</mat-option>
-                      <mat-option value="Low">Price High - Low</mat-option>
-                      <mat-option value="High">Price Low - High</mat-option>
+                      <mat-option value="Low">Price Low to High</mat-option>
+                      <mat-option value="High">Price High to Low</mat-option>
                     </mat-select>
                   </mat-form-field>
                 </div>
@@ -121,12 +121,7 @@
             </div>
           </div>
         </div>
-        <select id="sort-by" (change)="sort($event)">
-          <option value="" selected disabled hidden>Sort By</option>
-          <option value="Name">Name</option>
-          <option value="Low">Show Low to High Price</option>
-          <option value="High">Show High to Low Price</option>
-      </select>
+
         <!-- <div>
           <input
             type="text"
@@ -137,7 +132,7 @@
           />
         </div> -->
 
-        <div class="item-div">
+        <div *ngIf="first" class="item-div">
           <div>
             <div class="row top-buffer">
               <div
@@ -154,6 +149,61 @@
             </div>
           </div>
         </div>
+
+        <div *ngIf="low" class="item-div">
+          <div>
+            <div class="row top-buffer">
+              <div
+                class="col-md-4"
+                *ngFor="
+                  let product of productList2
+                    | productFilter: searchTerm:itemName
+                "
+              >
+                <app-shopping-detail-item
+                  [productItem]="product"
+                ></app-shopping-detail-item>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="name" class="item-div">
+          <div>
+            <div class="row top-buffer">
+              <div
+                class="col-md-4"
+                *ngFor="
+                  let product of productList3
+                    | productFilter: searchTerm:itemName
+                "
+              >
+                <app-shopping-detail-item
+                  [productItem]="product"
+                ></app-shopping-detail-item>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="high" class="item-div">
+          <div>
+            <div class="row top-buffer">
+              <div
+                class="col-md-4"
+                *ngFor="
+                  let product of productList4
+                    | productFilter: searchTerm:itemName
+                "
+              >
+                <app-shopping-detail-item
+                  [productItem]="product"
+                ></app-shopping-detail-item>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="paginator-div">
           <div class="row">
             <div

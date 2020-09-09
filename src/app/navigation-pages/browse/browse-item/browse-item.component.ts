@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Product } from 'src/app/shared/models/product';
 import { ProductService } from 'src/app/shared/services/product.service';
+import { MessengerService } from 'src/app/shared/services/messenger.service';
 
 @Component({
   selector: 'app-browse-item',
@@ -16,7 +17,10 @@ export class BrowseItemComponent implements OnInit {
   @Input() productList: Product[] = [];
   product: any;
 
-  constructor(private productService: ProductService) {}
+  constructor(
+    private productService: ProductService,
+    private msg: MessengerService
+  ) {}
 
   ngOnInit(): void {
     this.loadProductById(1);
@@ -45,6 +49,13 @@ export class BrowseItemComponent implements OnInit {
   loadProducts() {
     this.productService.getProducts().subscribe((products) => {
       this.productList = products;
+    });
+  }
+
+  opetItemDetails() {
+    this.productService.addProductToCart(this.productItem).subscribe(() => {
+      this.msg.sendItem(this.productItem);
+      console.log(this.productItem);
     });
   }
 }

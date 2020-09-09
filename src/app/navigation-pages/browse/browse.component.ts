@@ -7,6 +7,7 @@ import { ProductFilterPipe } from 'src/app/shared/pipes/product-filter.pipe';
 import { MatCheckboxChange, MatCheckbox } from '@angular/material/checkbox';
 import { MessengerService } from 'src/app/shared/services/messenger.service';
 import { EaseInOut } from 'igniteui-angular/lib/animations/easings';
+import { MAT_SORT_HEADER_INTL_PROVIDER_FACTORY } from '@angular/material/sort';
 
 @Component({
   selector: 'app-browse',
@@ -58,6 +59,8 @@ export class BrowseComponent implements OnInit {
     'Tomato',
   ];
 
+  price: any;
+
   @Input() term: string;
   @Input() term2: string;
   @Input() term3: string;
@@ -78,21 +81,40 @@ export class BrowseComponent implements OnInit {
   ngOnInit() {
     this.loadCategory();
     this.getSearch();
-    console.log(this.productList)
-    this.productList = this.productList.sort((low, high) => low.Price - high.Price);
-    console.log(this.sort)
+    console.log(this.productList);
+    this.productList = this.productList.sort(
+      (low, high) => low.Price - high.Price
+    );
+    console.log(this.sort);
   }
 
   ngAfterViewInit() {
     this.loadProducts();
   }
 
+  name = false;
+  high = false;
+  low = false;
+  first = true;
+
+  @Input() productList2: Product[] = [];
+  @Input() productList3: Product[] = [];
+  @Input() productList4: Product[] = [];
+
   sort(event: any) {
-    switch (event.target.value) {
+    switch (event.value) {
       case 'Low': {
-        this.productList = this.productList.sort(
-          (low, high) => low.Price - high.Price
-        );
+        this.productList.sort((low, high) => low.Price - high.Price);
+
+        this.productList2 = this.productList;
+        this.productList2 = this.product;
+
+        this.name = false;
+        this.high = false;
+        this.low = true;
+        this.first = false;
+
+        console.log(this.productList);
         break;
       }
 
@@ -100,6 +122,16 @@ export class BrowseComponent implements OnInit {
         this.productList = this.productList.sort(
           (low, high) => high.Price - low.Price
         );
+
+        this.productList4 = this.productList;
+        this.productList4 = this.product;
+
+        this.name = false;
+        this.high = true;
+        this.low = false;
+        this.first = false;
+
+        console.log(this.productList);
         break;
       }
 
@@ -113,6 +145,18 @@ export class BrowseComponent implements OnInit {
             return 0;
           }
         });
+
+        this.productList3 = this.productList;
+        this.productList3 = this.product;
+
+
+        this.name = true;
+        this.high = false;
+        this.low = false;
+        this.first = false;
+
+        console.log(this.productList);
+
         break;
       }
 
@@ -150,6 +194,7 @@ export class BrowseComponent implements OnInit {
   loadProducts() {
     this.productService.getProducts().subscribe((products) => {
       this.productList = products;
+      console.log(this.productList);
       this.product = products;
     });
   }
@@ -164,10 +209,49 @@ export class BrowseComponent implements OnInit {
   }
 
   onPageChange($event) {
-    this.productList = this.product.slice(
-      $event.pageIndex * $event.pageSize,
-      $event.pageIndex * $event.pageSize + $event.pageSize
-    );
+    if ((this.first = true)) {
+      
+      this.productList2 = []
+      this.productList3 = []
+      this.productList4 = []
+
+      
+
+      this.productList = this.product.slice(
+        $event.pageIndex * $event.pageSize,
+        $event.pageIndex * $event.pageSize + $event.pageSize
+      );
+    } else if ((this.high = true)) {
+
+      this.productList = []
+      this.productList2 = []
+      this.productList3 = []
+
+      this.productList4 = this.product.slice(
+        $event.pageIndex * $event.pageSize,
+        $event.pageIndex * $event.pageSize + $event.pageSize
+      );
+    } else if ((this.low = true)) {
+
+      this.productList = []
+      this.productList3 = []
+      this.productList4 = []
+
+      this.productList2 = this.product.slice(
+        $event.pageIndex * $event.pageSize,
+        $event.pageIndex * $event.pageSize + $event.pageSize
+      );
+    } else if ((this.name = true)) {
+
+      this.productList2 = []
+      this.productList = []
+      this.productList4 = []
+
+      this.productList3 = this.product.slice(
+        $event.pageIndex * $event.pageSize,
+        $event.pageIndex * $event.pageSize + $event.pageSize
+      );
+    }
   }
 
   pageEvent: PageEvent;
