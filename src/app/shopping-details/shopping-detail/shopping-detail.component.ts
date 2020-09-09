@@ -12,7 +12,7 @@ import { Product } from 'src/app/shared/models/product';
 })
 export class ShoppingDetailComponent implements OnInit {
 
-  constructor(public service:ShoppingDetailService, private product: Product) { }
+  constructor(public service:ShoppingDetailService) { }
 
   ngOnInit() {
     // this.resetForm();

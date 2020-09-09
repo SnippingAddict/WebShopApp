@@ -29,6 +29,7 @@ export class BrowseComponent implements OnInit {
   @Input()
   checked: boolean;
 
+
   filter = { CategoryId: false, laptop: false, processor: false };
 
   filterChange() {
@@ -75,8 +76,8 @@ export class BrowseComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private msg: MessengerService
-  ) {}
+    private msg: MessengerService,
+    private productFilter: ProductFilterPipe  ) {}
 
   ngOnInit() {
     this.loadCategory();

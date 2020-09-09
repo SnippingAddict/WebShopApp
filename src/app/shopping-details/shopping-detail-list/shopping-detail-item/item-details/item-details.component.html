@@ -4,15 +4,15 @@
       <div class="row">
         <div class="col-md-6">
           <div class="img-hover-zoom">
-            <img [src]="productItem.ImageUrl" />
+            <img [src]="productItem?.ImageUrl" />
           </div>
         </div>
         <div class="col-md-4">
           <p class="p1">
-            <strong> {{ productItem.ItemName }} </strong>
+            <strong> {{ productItem?.ItemName }} </strong>
           </p>
           <p class="p2">
-            <strong> {{ productItem.Price | currency: "USD" }} </strong>
+            <strong> {{ productItem?.Price | currency: "USD" }} </strong>
           </p>
           <p>
             <span class="sp1">Vendor : </span> <span> </span>

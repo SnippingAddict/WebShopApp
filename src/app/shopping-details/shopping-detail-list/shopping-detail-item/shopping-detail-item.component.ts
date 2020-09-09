@@ -1,8 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Product } from 'src/app/shared/models/product';
-import { CartService } from 'src/app/shared/services/cart.service';
 import { MessengerService } from 'src/app/shared/services/messenger.service';
-import { Cart } from 'src/app/shared/models/cart';
 import { ShoppingDetailService } from 'src/app/shared/shopping-detail.service';
 import { HttpClient } from '@angular/common/http';
 import { productsUrl, cartUrl } from 'src/app/config/api';
@@ -34,7 +32,6 @@ export class ShoppingDetailItemComponent implements OnInit {
   productArray: string[];
 
   constructor(
-    private cartService: CartService,
     private msg: MessengerService,
     private cookieService: CookieService,
     private productSr: ProductService,

@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Product } from '../models/product';
 import { productsUrl, cartUrl } from 'src/app/config/api';
-import { Cart } from '../models/cart';
 import { MessengerService } from './messenger.service';
 import { map } from 'rxjs/operators';
 import { Category } from '../models/category';

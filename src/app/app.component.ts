@@ -11,7 +11,7 @@ import { BrowserModule } from '@angular/platform-browser';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  title = 'WebShopApp';
+  title = 'TechDream';
   isAuthenticated: boolean;
   isAuthenticatedFalse = false;
   @Input() searchTerm: string;

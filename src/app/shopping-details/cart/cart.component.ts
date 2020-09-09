@@ -1,7 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MessengerService } from 'src/app/shared/services/messenger.service';
-import { CartService } from 'src/app/shared/services/cart.service';
-import { Cart } from 'src/app/shared/models/cart';
 import { ProductService } from 'src/app/shared/services/product.service';
 import { Product, CartItem } from 'src/app/shared/models/product';
 import { Observable } from 'rxjs';
@@ -40,11 +38,9 @@ export class CartComponent implements OnInit {
 
   constructor(
     private msg: MessengerService,
-    private cartService: CartService,
     public productSr: ProductService,
     private cookieService: CookieService,
     private route: ActivatedRoute,
-    public oktaAuth: OktaAuthService
   ) {}
 
   ngOnInit() {

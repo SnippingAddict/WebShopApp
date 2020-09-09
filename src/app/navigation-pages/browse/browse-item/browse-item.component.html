@@ -20,45 +20,45 @@
 <div>
   <div class="row">
     <!-- <button (click)="opetItemDetails()" mat-button class="button-set"> -->
-      <img class="image-set" [src]="productItem.ImageUrl" />
+      <img class="image-set" [src]="productItem?.ImageUrl" />
     <!-- </button> -->
     <div class="text-div">
       <div class="col-sm-2">
         <div class="row">
-          {{ productItem.ItemName }}
-          {{ productItem.Price | currency: "USD" }}
+          {{ productItem?.ItemName }}
+          {{ productItem?.Price | currency: "USD" }}
         </div>
       </div>
     </div>
   </div>
   <div class="row">
-    <img class="image-set" [src]="productItem2.ImageUrl" />
+    <img class="image-set" [src]="productItem2?.ImageUrl" />
     <div class="text-div">
       <div class="col-md-1">
         <div style="background-color: black">
           <div class="row">
             <div style="width: 100px; height: 20px">
               <p style="width: 120px">
-                {{ productItem2.ItemName }}
+                {{ productItem2?.ItemName }}
               </p>
             </div>
-            {{ productItem2.Price | currency: "USD" }}
+            {{ productItem2?.Price | currency: "USD" }}
           </div>
         </div>
       </div>
     </div>
   </div>
   <div class="row">
-    <img class="image-set" [src]="productItem3.ImageUrl" />
+    <img class="image-set" [src]="productItem3?.ImageUrl" />
     <div class="text-div">
       <div class="col-sm-1">
         <div class="row">
           <div style="width: 100px; height: 20px">
             <p style="width: 120px">
-              {{ productItem3.ItemName }}
+              {{ productItem3?.ItemName }}
             </p>
           </div>
-          {{ productItem3.Price | currency: "USD" }}
+          {{ productItem3?.Price | currency: "USD" }}
         </div>
       </div>
     </div>

@@ -1,14 +1,14 @@
 <div style="padding-top: 15px;">
   <mat-card class="example-card">
     <button (click)="opetItemDetails()" mat-button class="image-set">
-      <img [src]="productItem.ImageUrl" />
+      <img [src]="productItem?.ImageUrl" />
     </button>
     <mat-card-content>
       <p class="p1">
-        <strong> {{ productItem.ItemName }} </strong>
+        <strong> {{ productItem?.ItemName }} </strong>
       </p>
       <p class="p2">
-        <strong> {{ productItem.Price | currency: "USD" }} </strong>
+        <strong> {{ productItem?.Price | currency: "USD" }} </strong>
       </p>
     </mat-card-content>
     <mat-card-actions class="card-action">

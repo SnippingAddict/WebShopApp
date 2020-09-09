@@ -14,7 +14,7 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        OktaAuthModule
+        OktaAuthModule,
       ],
       declarations: [
         AppComponent
@@ -29,16 +29,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'WebShopApp'`, () => {
+  it(`should have as title 'TechDream'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('WebShopApp');
+    expect(app.title).toEqual('TechDream');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('WebShopApp app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('TechDream app is running!');
   });
 });

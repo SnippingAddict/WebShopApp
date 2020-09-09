@@ -14,6 +14,7 @@ import { ProductService } from 'src/app/shared/services/product.service';
 import { FormControl } from '@angular/forms';
 import { Category } from 'src/app/shared/models/category';
 import { ThemePalette } from '@angular/material/core';
+import { ProductFilterPipe } from 'src/app/shared/pipes/product-filter.pipe';
 
 @Component({
   selector: 'app-shopping-detail-list',
@@ -29,12 +30,13 @@ export class ShoppingDetailListComponent implements OnInit {
   @Input()
   color: ThemePalette = "accent";
 
+  @Input() pr: ProductFilterPipe
 
   constructor(
     public service: ShoppingDetailService,
     private matIconRegistry: MatIconRegistry,
     private domSanitizer: DomSanitizer,
-    private productService: ProductService
+    private productService: ProductService,
   ) {
     this.matIconRegistry.addSvgIcon(
       'shopping-cart',

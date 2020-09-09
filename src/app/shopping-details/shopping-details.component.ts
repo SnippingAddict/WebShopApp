@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
-import { Repository } from '../shared/models/repository';
 import { ProductService } from '../shared/services/product.service';
 import { Product } from '../shared/models/product';
 import { Input } from 'hammerjs';

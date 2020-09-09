@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { productsUrl } from 'src/app/config/api';
-import { Cart } from './cart';
 import { Observable } from 'rxjs';
 import { Category } from './category';
 import { ProductService } from '../services/product.service';
@@ -19,7 +18,6 @@ export class Product {
     public Quantity?: number,
     public Total?: number,
     public Category?: Category,
-    public Carts?: Cart,
     public broj?: number
     ) { this.Quantity = 0;
       this.Id = Id,

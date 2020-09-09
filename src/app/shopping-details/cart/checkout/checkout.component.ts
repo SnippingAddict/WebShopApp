@@ -14,7 +14,7 @@ export class CheckoutComponent implements OnInit {
 
   checkoutState = false;
 
-  constructor(private _formBuilder: FormBuilder, private msg: MessengerService) {}
+  constructor(public _formBuilder: FormBuilder, private msg: MessengerService) {}
 
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({

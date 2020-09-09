@@ -17,7 +17,7 @@ export class ItemDetailsComponent implements OnInit {
   constructor(
     private msg: MessengerService,
     private productSr: ProductService,
-    private _snackBar: MatSnackBar
+    // private _snackBar: MatSnackBar
   ) {}
 
   async ngOnInit() {
@@ -38,8 +38,8 @@ export class ItemDetailsComponent implements OnInit {
       this.msg.sendMsg(this.productItem);
       console.log(this.productItem);
     });
-    let snackBarRef = this._snackBar.open('Product added', 'Close', {
-      duration: 2000,
-    });
+    // let snackBarRef = this._snackBar.open('Product added', 'Close', {
+    //   duration: 2000,
+    // });
   }
 }

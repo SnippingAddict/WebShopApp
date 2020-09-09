@@ -10,7 +10,7 @@ import { ShoppingDetailsComponent } from './shopping-details/shopping-details.co
 import { ShoppingDetailComponent } from './shopping-details/shopping-detail/shopping-detail.component';
 import { ShoppingDetailListComponent } from './shopping-details/shopping-detail-list/shopping-detail-list.component';
 import { ShoppingDetailService } from './shared/shopping-detail.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -35,8 +35,6 @@ import { MatInputModule } from '@angular/material/input';
 import { CartItemComponent } from './shopping-details/cart/cart-item/cart-item.component';
 import { MatListModule } from '@angular/material/list';
 import { ShoppingDetailItemComponent } from './shopping-details/shopping-detail-list/shopping-detail-item/shopping-detail-item.component';
-import { CartService } from './shared/services/cart.service';
-import { Cart } from './shared/models/cart';
 import { CookieService } from 'ngx-cookie-service';
 import { MatTableModule } from '@angular/material/table';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -65,7 +63,7 @@ import { AppRoutingModule } from './app-routing-module';
 import { CheckoutComponent } from './shopping-details/cart/checkout/checkout.component';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { MatMenuModule } from '@angular/material/menu';
+import { MatMenuModule, MatMenu } from '@angular/material/menu';
 
 @Injectable()
 export class HammerConfig extends HammerGestureConfig {
@@ -159,7 +157,7 @@ const routes: Routes = [
     MatSelectModule,
     ReactiveFormsModule,
     OktaAuthModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot([]),
     MatDividerModule,
     MatTabsModule,
     CommonModule,
@@ -176,11 +174,13 @@ const routes: Routes = [
     { provide: HAMMER_GESTURE_CONFIG, useClass: HammerConfig },
     { provide: OKTA_CONFIG, useValue: oktaConfig },
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-    CartService,
     CookieService,
+    HttpClientModule,
+    ProductFilterPipe,
+    MatMenu
   ],
   bootstrap: [AppComponent],
-  exports: [RouterModule],
+  exports: [RouterModule, ProductFilterPipe],
 })
 export class AppModule {}
 
