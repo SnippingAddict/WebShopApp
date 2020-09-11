@@ -25,4 +25,8 @@ describe('CartComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should return array of products', () => {
+    expect(component).toBeTruthy();
+  })
 });

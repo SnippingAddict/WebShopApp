@@ -7,29 +7,29 @@ import { Product } from './models/product';
   providedIn: 'root'
 })
 export class ShoppingDetailService {
-  formData: Product;
+  private formData: Product;
   readonly rootURL = 'http://localhost:53103/api';
-  list : Product[];
+  private list : Product[];
 
   constructor(private http: HttpClient) { }
 
-  postShoppingDetail() {
+  private postShoppingDetail() {
     return this.http.post(this.rootURL + '/ShoppingDetails', this.formData);
   }
-  putShoppingDetail() {
+  private putShoppingDetail() {
     return this.http.put(this.rootURL + '/ShoppingDetails/'+ this.formData.Id, this.formData);
   }
-  deleteShoppingDetail(id) {
+  private deleteShoppingDetail(id) {
     return this.http.delete(this.rootURL + '/ShoppingDetails/'+ id);
   }
-  getShoppingDetail(id) {
+  private getShoppingDetail(id) {
     return this.http.get(this.rootURL + '/ShoppingDetails/' + id);
   }
-  gettShoppingDetail(){
+  private gettShoppingDetail(){
     return this.http.get(this.rootURL + '/ShoppingDetails');
   }
 
-  refreshList(){
+  private refreshList(){
     this.http.get(this.rootURL + '/ShoppingDetails')
     .toPromise()
     .then(res => this.list = res as Product[]);

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { Product } from 'src/app/shared/models/product';
 import { MessengerService } from 'src/app/shared/services/messenger.service';
 import { ShoppingDetailService } from 'src/app/shared/shopping-detail.service';
@@ -12,6 +12,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-shopping-detail-item',
@@ -21,6 +22,11 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class ShoppingDetailItemComponent implements OnInit {
   @Input() productItem: any;
   @Input('product') productName: string;
+
+  pageYoffset = 0;
+  @HostListener('window:scroll', ['$event']) onScroll(event){
+    this.pageYoffset = window.pageYOffset;
+  }
 
   nista = ""
 
@@ -39,7 +45,8 @@ export class ShoppingDetailItemComponent implements OnInit {
     private http: HttpClient,
     private _snackBar: MatSnackBar,
     private matIconRegistry: MatIconRegistry,
-    private domSanitizer: DomSanitizer
+    private domSanitizer: DomSanitizer,
+    private scroll: ViewportScroller
 
   ) {
     this.matIconRegistry.addSvgIcon("shopping-cart", this.domSanitizer.bypassSecurityTrustResourceUrl ("assets/images/svg/shopping-cart.svg"));
@@ -69,6 +76,7 @@ export class ShoppingDetailItemComponent implements OnInit {
     this.productSr.addProductToCart(this.productItem).subscribe(() => {
       this.msg.sendItem(this.productItem);
       console.log(this.productItem);
+      this.scroll.scrollToPosition([0,0]);
     });
   }
 

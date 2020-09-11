@@ -6,18 +6,27 @@ import { Subject } from 'rxjs';
 })
 export class MessengerService {
 
-  subject = new Subject()
-  subject2 = new Subject()
-  subject3 = new Subject()
-  subject4 = new Subject()
-  subject5 = new Subject()
-  subject6 = new Subject()
-  subject7 = new Subject()
+  private subject = new Subject()
+  private subject2 = new Subject()
+  private subject3 = new Subject()
+  private subject4 = new Subject()
+  private subject5 = new Subject()
+  private subject6 = new Subject()
+  private subject7 = new Subject()
+  private subject8 = new Subject()
   
-  category = new Subject()
-  search = new Subject()
+  private category = new Subject()
+  private search = new Subject()
 
   constructor() { }
+
+  sendChange(promena) {
+    this.subject8.next(promena)
+  }
+
+  getChange() {
+    return this.subject8.asObservable()
+  }
 
   sendCategory(category) {
     this.category.next(category)

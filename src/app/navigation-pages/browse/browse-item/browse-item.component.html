@@ -19,9 +19,9 @@
 
 <div>
   <div class="row">
-    <!-- <button (click)="opetItemDetails()" mat-button class="button-set"> -->
+    <button (click)="opetItemDetails()" mat-button class="button-set">
       <img class="image-set" [src]="productItem?.ImageUrl" />
-    <!-- </button> -->
+    </button>
     <div class="text-div">
       <div class="col-sm-2">
         <div class="row">
@@ -32,7 +32,10 @@
     </div>
   </div>
   <div class="row">
-    <img class="image-set" [src]="productItem2?.ImageUrl" />
+    <button (click)="opetItemDetails2()" mat-button class="button-set">
+      <img class="image-set" [src]="productItem2?.ImageUrl" />
+    </button>
+
     <div class="text-div">
       <div class="col-md-1">
         <div style="background-color: black">
@@ -49,7 +52,9 @@
     </div>
   </div>
   <div class="row">
-    <img class="image-set" [src]="productItem3?.ImageUrl" />
+    <button (click)="opetItemDetails3()" mat-button class="button-set">
+      <img class="image-set" [src]="productItem3?.ImageUrl" />
+    </button>
     <div class="text-div">
       <div class="col-sm-1">
         <div class="row">

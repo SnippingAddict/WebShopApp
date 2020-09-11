@@ -42,6 +42,11 @@
   height: 50px;
 }
 
+.site-button :hover{
+  background-color:transparent !important; 
+  padding: 0px;
+}
+
 .counter {
   width: 20px;
   height: 20px;

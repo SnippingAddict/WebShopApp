@@ -176,8 +176,7 @@ const routes: Routes = [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     CookieService,
     HttpClientModule,
-    ProductFilterPipe,
-    MatMenu
+    ProductFilterPipe
   ],
   bootstrap: [AppComponent],
   exports: [RouterModule, ProductFilterPipe],

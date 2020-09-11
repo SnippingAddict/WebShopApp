@@ -55,24 +55,38 @@
 .baner1 {
   border-radius: 10px;
   margin-bottom: 30px;
+  padding-right: 0px;
+  padding-left: 0px;
 }
 .baner2 {
   border-radius: 10px;
+  padding-right: 0px;
+  padding-left: 0px;
 }
 .baner3 {
   border-radius: 10px;
   margin-right: 30px;
+  padding-right: 0px;
+  padding-left: 0px;
 }
 .baner4 {
   border-radius: 10px;
-
+  padding-right: 0px;
+  padding-left: 0px;
 }
 .baner5 {
   border-radius: 10px;
   margin-top: 30px;
+  padding-right: 0px;
+  padding-left: 0px;
 }
 
 .baners-div {
-    margin-top: 30px;
-    padding-left: 60px;
+  margin-top: 30px;
+  padding-left: 60px;
+}
+
+.button-padding {
+  padding-right: 0px;
+  padding-left: 0px;
 }

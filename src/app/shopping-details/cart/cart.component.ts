@@ -8,6 +8,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { CartItemComponent } from './cart-item/cart-item.component';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { OktaAuthService } from '@okta/okta-angular';
+import { runInThisContext } from 'vm';
 
 export interface CartItems {
   product: string;
@@ -35,21 +36,21 @@ export class CartComponent implements OnInit {
   brPromene = true;
   broj = 1;
   isAuthenticated: any;
+  storageItem: string;
 
   constructor(
     private msg: MessengerService,
     public productSr: ProductService,
     private cookieService: CookieService,
-    private route: ActivatedRoute,
+    private route: ActivatedRoute
   ) {}
 
-  ngOnInit() {
+  async ngOnInit() {
     this.handleSubscription();
-    // if (this.transactions !== [0]) {
-    //   this.transactions = JSON.parse(localStorage.getItem('Array'));
-    // }
-    console.log(this.brPromene);
-
+    if (localStorage.getItem('Array') != this.storageItem) {
+      this.storageItem = localStorage.getItem('Array');
+      this.transactions = JSON.parse(this.storageItem);
+    }
     console.log(this.transactions);
   }
 
@@ -82,7 +83,7 @@ export class CartComponent implements OnInit {
       } else {
         console.log('There are no more in stock !');
       }
-      // localStorage.setItem('Array', JSON.stringify(this.transactions))
+      localStorage.setItem('Array', JSON.stringify(this.transactions));
     });
   }
 
@@ -109,17 +110,25 @@ export class CartComponent implements OnInit {
       if (index !== -1) {
         this.transactions.splice(index, 1);
         item.Quantity--;
+        localStorage.setItem('Array', JSON.stringify(this.transactions));
       }
     } else {
       const index: number = this.transactions.indexOf(item);
       this.transactions.splice(index, 1);
       item.Quantity = 0;
       item.Total = item.Price * item.Quantity;
+      localStorage.setItem('Array', JSON.stringify(this.transactions));
     }
   }
 
   displayedColumns: string[] = ['ItemName', 'Price'];
   transactions: any[] = [];
+
+  visibleBrowse = false;
+
+  changeBrowse() {
+    this.msg.sendChange(this.visibleBrowse)
+  }
 
   /** Gets the total cost of all transactions. */
   getTotalCost() {

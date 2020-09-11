@@ -13,7 +13,7 @@ export class NavComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  cartClick() {
+  private cartClick() {
     this.router.navigateByUrl('/cart');
 };
 

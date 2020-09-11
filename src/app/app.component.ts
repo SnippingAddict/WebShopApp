@@ -11,7 +11,7 @@ import { BrowserModule } from '@angular/platform-browser';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  title = 'TechDream';
+  title = 'WebShopApp';
   isAuthenticated: boolean;
   isAuthenticatedFalse = false;
   @Input() searchTerm: string;
@@ -40,8 +40,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.isVisibleFrontPage = true;
-    this.itemNumber();
     this.broj = 0;
+    this.itemNumber();
     this.show = false;
     console.log(this.msg.getBr());
     this.handleSubscription();
@@ -55,6 +55,7 @@ export class AppComponent implements OnInit {
     this.logino();
     this.itemMinus();
     this.toggleShopNow();
+    this.changeToBrowse();
   }
 
   async logino() {
@@ -65,6 +66,30 @@ export class AppComponent implements OnInit {
     );
   }
 
+  over() {
+    let element: HTMLElement = document.getElementById(
+      'auto_trigger'
+    ) as HTMLElement;
+
+    element.click();
+  }
+
+  out() {
+    let element: HTMLElement = document.getElementById(
+      'auto_trigger'
+    ) as HTMLElement;
+
+    element.click();
+  }
+
+  backHome() {
+    this.isVisibleFrontPage = true;
+    this.isVisibleCart = true;
+    this.isVisibleAboutUs = false;
+    this.isVisibleBrowse = true;
+    this.isVisibleItemDetails = true;
+  }
+
   onKeydown(event) {
     if (event.key === 'Enter') {
       this.msg.sendSearch(this.searchTerm);
@@ -73,6 +98,13 @@ export class AppComponent implements OnInit {
       console.log(this.searchTerm);
       console.log(event);
     }
+  }
+
+  changeToBrowse() {
+    this.msg.getChange().subscribe((promena: boolean) => {
+      this.isVisibleBrowse = promena;
+      this.isVisibleFrontPage = promena;
+    });
   }
 
   activateCategory(value: number, category: string) {
@@ -117,7 +149,18 @@ export class AppComponent implements OnInit {
     });
   }
 
+  storage: string;
+  storageBroj: any;
+
   itemNumber() {
+    this.storage = localStorage.getItem('Array');
+    this.storageBroj = JSON.parse(this.storage);
+    if (localStorage.getItem('Array') === null) {
+      console.log('Nema nista');
+    } else {
+      this.broj = this.storageBroj.length;
+    }
+    console.log(this.broj);
     this.msg.getMsg().subscribe((product: Product) => {
       this.broj++;
       console.log(this.broj);

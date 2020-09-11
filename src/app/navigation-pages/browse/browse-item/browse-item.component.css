@@ -36,13 +36,12 @@
 .image-set {
   width: 100px;
   border: 1px solid #d8d8d8;
-  margin: 10px 10px 10px 10px;
 }
 
 .button-set {
-  width: 100px;
+  padding: 0px;
+  background-color: violet;
   margin: 10px 10px 10px 10px;
-
 }
 
 .p1 {

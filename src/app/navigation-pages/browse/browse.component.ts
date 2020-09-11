@@ -76,8 +76,7 @@ export class BrowseComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private msg: MessengerService,
-    private productFilter: ProductFilterPipe  ) {}
+    private msg: MessengerService,  ) {}
 
   ngOnInit() {
     this.loadCategory();
@@ -86,8 +85,10 @@ export class BrowseComponent implements OnInit {
     this.productList = this.productList.sort(
       (low, high) => low.Price - high.Price
     );
-    console.log(this.sort);
   }
+
+
+  productFilter: ProductFilterPipe
 
   ngAfterViewInit() {
     this.loadProducts();
@@ -214,9 +215,7 @@ export class BrowseComponent implements OnInit {
       
       this.productList2 = []
       this.productList3 = []
-      this.productList4 = []
-
-      
+      this.productList4 = []      
 
       this.productList = this.product.slice(
         $event.pageIndex * $event.pageSize,

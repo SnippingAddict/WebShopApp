@@ -2,6 +2,11 @@ import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { OKTA_CONFIG, OktaAuthModule } from '@okta/okta-angular';
+import { HarnessLoader } from '@angular/cdk/testing';
+import { MatMenu, MatMenuModule } from '@angular/material/menu';
+
+let loader: HarnessLoader;
+
 
 describe('AppComponent', () => {
   const oktaConfig = {
@@ -14,10 +19,10 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        OktaAuthModule,
+        OktaAuthModule, MatMenuModule
       ],
       declarations: [
-        AppComponent
+        AppComponent,
       ],
       providers: [{provide: OKTA_CONFIG, useValue: oktaConfig}]
     }).compileComponents();
@@ -29,16 +34,11 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'TechDream'`, () => {
+  it(`should have as title 'WebShopApp'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('TechDream');
+    expect(app.title).toEqual('WebShopApp');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('TechDream app is running!');
-  });
+  
 });

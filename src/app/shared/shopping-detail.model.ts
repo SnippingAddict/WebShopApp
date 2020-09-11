@@ -1,9 +1,9 @@
 export class ShoppingDetail {
-    IId : number;
-    ItemName : string;
-    Price : string;
-    InStock : string;
-    DateAndTime : string;
-    CVV : string;
+    private IId : number;
+    private ItemName : string;
+    private Price : string;
+    private InStock : string;
+    private DateAndTime : string;
+    private CVV : string;
 
 }

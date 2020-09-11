@@ -12,11 +12,11 @@ import { Category } from '../models/category';
 })
 export class ProductService {
 
-  @Input() prCart: Product
+  @Input() private prCart: Product
 
   product: Product
-  products: Product[]
-  cartProduct: Product
+  private products: Product[]
+  private cartProduct: Product
 
   constructor(private http: HttpClient, private msg: MessengerService,
     ) { 
@@ -31,11 +31,11 @@ export class ProductService {
     return this.http.get<Product>(productsUrl + "/" + Id)
   }
 
-  getProductsPaginator(event): Observable<Product[]> {
+  private getProductsPaginator(event): Observable<Product[]> {
     return this.http.get<Product[]>(productsUrl);
   }
 
-  getCategories(): Observable<Product[]>{
+  private getCategories(): Observable<Product[]>{
     return this.http.get<Product[]>(productsUrl)
   }
 
@@ -44,7 +44,7 @@ export class ProductService {
   }
 
   //SendMsg salje vrednosti, getMsg upisuje unutar objekta, objekat ucitavamo i upisujemo unutar niza
-  getCartItems(): Observable<Product[]> {
+  private getCartItems(): Observable<Product[]> {
     //TODO: Mapping the obtained result to our CartItem props. (pipe() and map())
     return this.http.get<Product[]>(productsUrl).pipe(
       map((result: any[]) => {

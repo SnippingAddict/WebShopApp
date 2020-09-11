@@ -11,7 +11,7 @@ describe('BrowseComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BrowseComponent ],
+      declarations: [ BrowseComponent, ProductFilterPipe ],
       imports: [HttpClientTestingModule],
       providers: [ProductFilterPipe]
 
@@ -28,4 +28,6 @@ describe('BrowseComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  
 });

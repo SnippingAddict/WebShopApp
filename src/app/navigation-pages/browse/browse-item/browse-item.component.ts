@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { Product } from 'src/app/shared/models/product';
 import { ProductService } from 'src/app/shared/services/product.service';
 import { MessengerService } from 'src/app/shared/services/messenger.service';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-browse-item',
@@ -17,9 +18,15 @@ export class BrowseItemComponent implements OnInit {
   @Input() productList: Product[] = [];
   product: any;
 
+  pageYoffset = 0;
+  @HostListener('window:scroll', ['$event']) onScroll(event){
+    this.pageYoffset = window.pageYOffset;
+  }
+
   constructor(
     private productService: ProductService,
-    private msg: MessengerService
+    private msg: MessengerService,
+    private scroll: ViewportScroller
   ) {}
 
   ngOnInit(): void {
@@ -28,6 +35,8 @@ export class BrowseItemComponent implements OnInit {
     this.loadProductById3(3);
   }
 
+
+  
   loadProductById(id) {
     this.productService.getProductById(id).subscribe((productId) => {
       this.productItem = productId;
@@ -56,6 +65,23 @@ export class BrowseItemComponent implements OnInit {
     this.productService.addProductToCart(this.productItem).subscribe(() => {
       this.msg.sendItem(this.productItem);
       console.log(this.productItem);
+      this.scroll.scrollToPosition([0,0]);
+    });
+  }
+
+  opetItemDetails2() {
+    this.productService.addProductToCart(this.productItem2).subscribe(() => {
+      this.msg.sendItem(this.productItem2);
+      console.log(this.productItem);
+      this.scroll.scrollToPosition([0,0]);
+    });
+  }
+
+  opetItemDetails3() {
+    this.productService.addProductToCart(this.productItem3).subscribe(() => {
+      this.msg.sendItem(this.productItem3);
+      console.log(this.productItem);
+      this.scroll.scrollToPosition([0,0]);
     });
   }
 }

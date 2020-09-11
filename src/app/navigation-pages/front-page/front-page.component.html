@@ -4,11 +4,11 @@
 <div>
   <img
     src="https://cdn.shopify.com/s/files/1/0250/3793/0580/files/Breadcrumb_1.jpg?v=1558440062"
-    style="width: 1920px; height: 660px; opacity: 0.7;"
+    style="width: 1920px; height: 660px; opacity: 0.7"
     alt="slika"
   />
   <div class="centered">
-    <div style="width: 700px;">
+    <div style="width: 700px">
       <owl-carousel-o [options]="customOptions">
         <ng-template carouselSlide>
           <mat-grid-list cols="2" rowHeight="500px">
@@ -17,25 +17,24 @@
                 <p class="carousel-p2">Browse for best phones</p>
                 <p class="carousel-p1">Lorem Ipsum</p>
                 <div class="button-div">
-                  <button class="button1" (click)="browseSwitch()" mat-button>SHOP NOW</button>
+                  <button class="button1" (click)="browseSwitch()" mat-button>
+                    SHOP NOW
+                  </button>
                 </div>
               </div>
             </mat-grid-tile>
             <mat-grid-tile
-              ><div style="padding-top: 100px;">
-                <img
-                  src="assets/images/mobilni.png"
-                  alt="mobilcarousel"
-                /></div
+              ><div style="padding-top: 100px">
+                <img src="assets/images/mobilni.png" alt="mobilcarousel" /></div
             ></mat-grid-tile>
           </mat-grid-list>
         </ng-template>
         <ng-template carouselSlide>
           <mat-grid-list cols="2" rowHeight="550px">
             <mat-grid-tile
-              ><div style="padding-top: 100px;">
+              ><div style="padding-top: 100px">
                 <img
-                  style="width: 500px; height: 450;"
+                  style="width: 500px; height: 450"
                   src="assets/images/smartwatch2.png"
                   alt="mobilcarousel"
                 /></div
@@ -45,7 +44,9 @@
                 <p class="carousel-p2">Browse for best smartwatches</p>
                 <p class="carousel-p1">Lorem Ipsum</p>
                 <div class="button-div">
-                  <button class="button1" (click)="browseSwitch()" mat-button>SHOP NOW</button>
+                  <button class="button1" (click)="browseSwitch()" mat-button>
+                    SHOP NOW
+                  </button>
                 </div>
               </div>
             </mat-grid-tile>
@@ -61,25 +62,31 @@
     <div class="container">
       <div class="row">
         <div>
-          <img
-            style="border-radius: 10px;"
-            src="https://cdn.shopify.com/s/files/1/0250/3793/0580/files/Banner-1_370x210.png?v=1558070697"
-            alt="Panel1"
-          />
+          <button class="button-padding" mat-button (click)="activateCategory(1, 'mobile')">
+            <img
+              style="border-radius: 10px"
+              src="https://cdn.shopify.com/s/files/1/0250/3793/0580/files/Banner-1_370x210.png?v=1558070697"
+              alt="Panel1"
+            />
+          </button>
         </div>
-        <div style="padding-right: 15px; padding-left: 15px;">
-          <img
-            style="border-radius: 10px;"
-            src="https://cdn.shopify.com/s/files/1/0250/3793/0580/files/Banner-2_370x210.png?v=1558077847"
-            alt="Panel2"
-          />
+        <div style="padding-right: 15px; padding-left: 15px">
+          <button class="button-padding" (click)="changeToBrowse()" mat-button>
+            <img
+              style="border-radius: 10px"
+              src="https://cdn.shopify.com/s/files/1/0250/3793/0580/files/Banner-2_370x210.png?v=1558077847"
+              alt="Panel2"
+            />
+          </button>
         </div>
         <div>
-          <img
-            style="border-radius: 10px;"
-            src="https://cdn.shopify.com/s/files/1/0250/3793/0580/files/Banner-3_370x210.png?v=1558070717"
-            alt="Panel3"
-          />
+          <button class="button-padding" (click)="activateCategory(2, 'laptop')" mat-button>
+            <img
+              style="border-radius: 10px"
+              src="https://cdn.shopify.com/s/files/1/0250/3793/0580/files/Banner-3_370x210.png?v=1558070717"
+              alt="Panel3"
+            />
+          </button>
         </div>
       </div>
     </div>
@@ -94,19 +101,49 @@
   <div class="d-flex justify-content-center">
     <div class="col-md-2">
       <div class="row">
-        <img class="baner1" src="assets/images/zvucnikbaner.png" alt="" />
-        <img class="baner2" src="assets/images/banersale.png" alt="" />
+        <button class="baner1" (click)="activateCategory(3, 'speaker')" mat-button>
+          <img
+            style="border-radius: 10px"
+            src="assets/images/zvucnikbaner.png"
+            alt=""
+          />
+        </button>
+        <button class="baner2" (click)="changeToBrowse()" mat-button>
+          <img
+            style="border-radius: 10px"
+            src="assets/images/banersale.png"
+            alt=""
+          />
+        </button>
       </div>
     </div>
     <div class="col-md-6">
       <div class="row">
-        <div style="padding-left: 15px;">
-          <img class="baner3" src="assets/images/banernesto.png" alt="" />
-          <img class="baner4" src="assets/images/banerfon.png" alt="" />
+        <div style="padding-left: 15px">
+          <button class="baner3" (click)="activateCategory(3, 'speaker')" mat-button>
+            <img
+              style="border-radius: 10px"
+              src="assets/images/banernesto.png"
+              alt=""
+            />
+          </button>
+          <button class="baner4" (click)="activateCategory(1, 'mobile')" mat-button>
+            <img
+              style="border-radius: 10px"
+              src="assets/images/banerfon.png"
+              alt=""
+            />
+          </button>
         </div>
       </div>
       <div>
-        <img class="baner5" src="assets/images/banersto.png" alt="" />
+        <button class="baner5" (click)="changeToBrowse()" mat-button>
+          <img
+            style="border-radius: 10px"
+            src="assets/images/banersto.png"
+            alt=""
+          />
+        </button>
       </div>
     </div>
   </div>
